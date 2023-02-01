@@ -1,0 +1,18 @@
+
+.card_product {
+    transform: scale(1);
+    cursor: pointer;
+    background-image: 
+    linear-gradient(
+        to right, #30cfd044, #a5d6a744, #FF809544
+    )
+    ;
+   
+        
+}
+.card_product:hover {
+transform: scale(1.04);
+
+
+filter:brightness(110%);
+}
