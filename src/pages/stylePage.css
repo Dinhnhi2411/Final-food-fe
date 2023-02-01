@@ -1,0 +1,53 @@
+.fruit-vet:hover {
+background-color: rgb(170, 249, 96);
+}
+.detail-page {
+    background-image: 
+    linear-gradient(to right, #30cfd044, #a5d6a744, #FF809544);
+    box-shadow: 0 6px 6px cadetblue;
+    border-radius: 20px;
+
+}
+
+@-webkit-keyframes my {
+    0% {
+        color: #0a22f8;
+    }
+
+    /* 50% { color: #fff;  }  */
+    100% {
+        color: #f31729;
+    }
+}
+
+
+@-o-keyframes my {
+    0% {
+        color: #0a22f8;
+    }
+
+    /* 50% { color: #fff; }  */
+    100% {
+        color: #f31729;
+    }
+}
+
+@keyframes my {
+    0% {
+        color: #0a22f8;
+    }
+
+    /* 50% { color: #fff;  } */
+    100% {
+        color: #f31729;
+    }
+}
+
+.title {
+    font-weight: bold;
+    -webkit-animation: my 1000ms infinite;
+    -moz-animation: my 1000ms infinite;
+    -o-animation: my 1000ms infinite;
+    animation: my 1000ms infinite;
+    
+}

@@ -1,0 +1,8 @@
+.container_dash {
+  transform: scale(1);
+  cursor: pointer;
+  background-image: linear-gradient(to right, #30cfd044, #a5d6a744, #ff809544);
+}
+Button:hover {
+  background-color:aliceblue;
+}
