@@ -65,7 +65,7 @@ function IntroducePage() {
 
         Bên cạnh việc đảm bảo nguồn hàng có chất lượng phục vụ khách hàng, cửa hàng Mini Food cũng luôn chú trọng đến phương pháp và phong cách phục vụ để mọi khách hàng khi mua hàng tử cửa hàng Mini Food sẽ luôn thấy rằng mình là thường đế. Với một loạt các chính sách phục vụ khách hàng như: 
         <br/>
-        <b>- Giao hàng miễn phí toàn bộ 7 quận nội thành TPHCM</b>
+        <b>- Giao hàng miễn phí toàn bộ các quận nội thành TPHCM</b>
         <br/>
         <b>- Trợ giá đối với các đơn hàng vận chuyển đi các tỉnh</b>
         <br/>

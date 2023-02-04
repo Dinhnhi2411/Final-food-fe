@@ -6,7 +6,7 @@ import AddAPhotoRoundedIcon from "@mui/icons-material/AddAPhotoRounded";
 import { styled, alpha } from "@mui/material/styles";
 import RejectionFiles from "../rejectionFiles/RejectionFiles";
 
-const RootStyle = styled("span")(({ theme }) => ({
+const RootStyle = styled("div")(({ theme }) => ({
   width: 144,
   height: 144,
   margin: "auto",
@@ -15,7 +15,7 @@ const RootStyle = styled("span")(({ theme }) => ({
   border: `1px dashed ${alpha("#919EAB", 0.32)}`,
 }));
 
-const DropZoneStyle = styled("span")({
+const DropZoneStyle = styled("div")({
   zIndex: 0,
   width: "100%",
   height: "100%",
@@ -35,7 +35,7 @@ const DropZoneStyle = styled("span")({
   },
 });
 
-const PlaceholderStyle = styled("span")(({ theme }) => ({
+const PlaceholderStyle = styled("div")(({ theme }) => ({
   display: "flex",
   position: "absolute",
   alignItems: "center",

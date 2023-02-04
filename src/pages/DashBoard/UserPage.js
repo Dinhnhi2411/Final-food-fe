@@ -239,8 +239,9 @@ export default function UserPage() {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("name");
   const [selected, setSelected] = React.useState([]);
+  
   const [page, setPage] = React.useState(0);
-
+// eslint-disable-next-line
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleRequestSort = (event, property) => {

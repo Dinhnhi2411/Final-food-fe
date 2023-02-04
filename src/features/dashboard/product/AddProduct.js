@@ -26,8 +26,8 @@ const CreateProductSchema = yup.object().shape({
 const defaultValues = {
   productName: "",
   types: "",
-  price: null,
-  priceSale: null,
+  price: "",
+  priceSale: "",
   unit: "",
   rating: "",
   image: null,

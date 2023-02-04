@@ -11,10 +11,9 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import useAuth from "../hooks/useAuth";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+import { GoogleLogin,  } from "react-google-login";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FACEBOOK_APP_ID, GOOGLE_CLIENT_ID } from "../app/config";
-import { gapi } from 'gapi-script';
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -28,12 +27,11 @@ const defaultValues = {
 };
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-  const [ profile, setProfile ] = useState([]);
+
   const auth = useAuth();
   let navigate = useNavigate();
   let location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const clientId = '1083687826911-blkp6q98e53bleiggvuj6omkdf9f178b.apps.googleusercontent.com';
   const methods = useForm({
     resolver: yupResolver(loginSchema),
     defaultValues,
