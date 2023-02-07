@@ -29,7 +29,7 @@ const defaultValues = {
   price: "",
   priceSale: "",
   unit: "",
-  rating: "",
+  
   image: null,
   description: "",
 };
@@ -75,7 +75,7 @@ function AddProduct() {
       price,
       priceSale,
       unit,
-      rating,
+      
       description,
       image,
     } = data;
@@ -89,7 +89,7 @@ function AddProduct() {
         price,
         priceSale,
         unit,
-        rating,
+       
         description,
         image,
       })
@@ -187,7 +187,6 @@ function AddProduct() {
               <FTextField name="priceSale" label="Price Saler" />
 
               <FTextField name="unit" label="Unit" />
-              <FTextField name="rating" label="Rating" />
             </Box>
 
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3, mb: 10 }}>

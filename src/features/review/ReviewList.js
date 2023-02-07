@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Pagination, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
@@ -27,6 +27,9 @@ function ReviewList({ productId }) {
     shallowEqual
   );
 
+  const handleChange = (even, value) => {
+        setPage(value);
+    };
 
   const dispatch = useDispatch();
 
@@ -61,11 +64,11 @@ function ReviewList({ productId }) {
             : "No review"}
         </Typography>
 
-       <PaginationBar
-        page={page}
-        setPage={setPage}
-        totalPage={+totalPages}
-       />
+       <Pagination
+            count={Math.ceil(totalReviews/5)}
+            page={page}
+            onChange={handleChange}
+            />
       </Stack>
       {renderReviews}
     </Stack>

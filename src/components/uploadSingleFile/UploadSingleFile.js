@@ -2,11 +2,11 @@ import isString from "lodash/isString";
 import { useDropzone } from "react-dropzone";
 
 import { styled } from "@mui/material/styles";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import AddAPhotoRoundedIcon from "@mui/icons-material/AddAPhotoRounded";
 import RejectionFiles from "../rejectionFiles/RejectionFiles";
 
-const DropZoneStyle = styled("span")(({ theme }) => ({
+const DropZoneStyle = styled("div")(({ theme }) => ({
   outline: "none",
   overflow: "hidden",
   position: "relative",
@@ -49,7 +49,7 @@ function UploadSingleFile({ error = false, file, helperText, sx, ...other }) {
       >
         <input {...getInputProps()} />
 
-        <Stack
+        <Box
           direction="column"
           spacing={2}
           justifyContent="center"
@@ -65,7 +65,7 @@ function UploadSingleFile({ error = false, file, helperText, sx, ...other }) {
           >
             Drop or Select Image
           </Typography>
-        </Stack>
+        </Box>
 
         {file && (
           <Box

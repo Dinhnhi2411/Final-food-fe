@@ -21,7 +21,7 @@ function ProductList({ products, isLoading }) {
           >{`No results found`}</Alert>
         )}
         {products.map((item, index) => (
-          <Grid key={item._id} item xs={8} sm={6} md={4} lg={3}>
+          <Grid key={item._id} item xs={6} sm={6} md={4} lg={3}>
             {isLoading ? (
               <ProductCardSkeleton />
             ) : (

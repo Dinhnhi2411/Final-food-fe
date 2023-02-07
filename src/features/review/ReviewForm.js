@@ -13,7 +13,7 @@ function ReviewForm({ productId }) {
     const { user, isAuthenticated } = useAuth();
     const [content, setContent] = useState("");
     const dispatch = useDispatch();
-    const userId = user._id;
+    const userId = user?._id;
     
    const handleSubmit = (e) => {
     e.preventDefault();

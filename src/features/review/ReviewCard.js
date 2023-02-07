@@ -1,23 +1,23 @@
-import { Avatar,  Paper, Rating, Typography } from '@mui/material';
-import { Stack } from '@mui/system';
-import React, { useState } from 'react'
+import { Avatar, Paper, Rating, Typography } from "@mui/material";
+import { Stack } from "@mui/system";
+import React, { useState } from "react";
 
-import { useDispatch } from 'react-redux';
-import useAuth from '../../hooks/useAuth';
+import { useDispatch } from "react-redux";
 
-import { fDate } from '../../utils/formatTime';
-import {  sendReviewReaction } from './reviewSlice';
+import useAuth from "../../hooks/useAuth";
 
-function ReviewCard({review}) {
-  
+import { fDate } from "../../utils/formatTime";
+import { sendReviewReaction } from "./reviewSlice";
+
+function ReviewCard({ review }) {
   const dispatch = useDispatch();
-  const { totalRatings, rateAverage, _id } = review;
-  const {user} = useAuth()
-  const userId = user._id
+  const { rateAverage, _id } = review;
+  const { user } = useAuth();
+  const userId = user?._id;
   const [valueRating, setRating] = useState(rateAverage);
 
   return (
-  <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={2}>
       <Avatar alt={review.userId?.name} src={review.userId?.avatarUrl} />
       <Paper sx={{ p: 1.5, flexGrow: 1, bgcolor: "background.neutral" }}>
         <Stack
@@ -34,34 +34,37 @@ function ReviewCard({review}) {
           </Typography>
         </Stack>
 
-         <Stack direction="row" alignItems="center" spacing={1}>
-          <Rating
-            name="read-only"
-            value={valueRating}
-            precision={1}
-            onChange={(event, newValue) => {
-              if (newValue) {
-                setRating(newValue);
-                dispatch(
-                  sendReviewReaction({ reviewId: _id, rate: +newValue, userId:userId})
-                );
-              }
-            }}
-            size="small"
-          />
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            {`(${totalRatings})`}
-          </Typography>
+        <Stack direction="row" alignItems="center" spacing={1}>
+          {review?.userId?._id === userId ? (
+            <Rating
+              name="read-only"
+              value={valueRating}
+              precision={1}
+              onChange={(event, newValue) => {
+                if (newValue) {
+                  setRating(newValue);
+                  dispatch(
+                    sendReviewReaction({
+                      reviewId: _id,
+                      rating: +newValue,
+                      userId: userId,
+                    })
+                  );
+                }
+              }}
+              size="small"
+            />
+          ) : (
+            <Rating name="read-only" value={valueRating} readOnly />
+          )}
         </Stack>
 
         <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {review.content}
         </Typography>
-       
       </Paper>
-   
     </Stack>
-  )
+  );
 }
 
-export default ReviewCard
+export default ReviewCard;

@@ -283,9 +283,6 @@ export default function UserPage() {
 
   const isSelected = (title) => selected.indexOf(title) !== -1;
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - totalUsers) : 0;
-
   useEffect(() => {
     const filters = { page: page + 1, limit: rowsPerPage };
     dispatch(getUserList(filters));
@@ -428,7 +425,7 @@ export default function UserPage() {
                                         <Avatar
                                           alt="Facebook"
                                           sx={{
-                                            bgcolor: "success.main",
+                                            bgcolor: "primary.main",
                                             width: 35,
                                             height: 35,
                                           }}
@@ -439,15 +436,18 @@ export default function UserPage() {
 
                                       {user?.googleId && (
                                         <Avatar
-                                          src={<FaGoogle />}
                                           alt="Google"
                                           sx={{
-                                            bgcolor: "success.main",
+                                            bgcolor: "primary.main",
                                             width: 35,
                                             height: 35,
                                           }}
-                                        />
+
+                                       >
+                                        <FaGoogle />
+                                       </Avatar>
                                       )}
+
                                     </AvatarGroup>
                                   </Stack>
                                 </TableCell>
@@ -455,15 +455,7 @@ export default function UserPage() {
                             );
                           }
                         )}
-                      {emptyRows > 0 && (
-                        <TableRow
-                          style={{
-                            height: 53 * emptyRows,
-                          }}
-                        >
-                          <TableCell colSpan={6} />
-                        </TableRow>
-                      )}
+                     
                     </TableBody>
                   </Table>
                 </TableContainer>

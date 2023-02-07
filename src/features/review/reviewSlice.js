@@ -47,8 +47,6 @@ const slice = createSlice({
       state.error = null;
       const { reviewId } = action.payload;
       const { reaction } = action.payload.reactions;
-  
-      state.reviewsById[reviewId].totalRatings = reaction.totalRatings;
       state.reviewsById[reviewId].rateAverage = reaction.rateAverage;
     },
     deleteReviewSuccess(state, action) {
@@ -115,15 +113,15 @@ export const getReviews =
   };
 
 export const sendReviewReaction =
-  ({ reviewId, rate, userId }) =>
+  ({ reviewId, rating, userId }) =>
   async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
       const response = await apiService.post(`/reactions`, {
-        refPaths: "Review",
+        // refPaths: "Review",
         targetId: reviewId,
         userId: userId,
-        rate,
+        rating,
       });
       dispatch(
         slice.actions.sendReviewReactionSuccess({

@@ -11,9 +11,11 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import useAuth from "../hooks/useAuth";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-import { GoogleLogin,  } from "react-google-login";
+import { GoogleLogin, useGoogleLogin,  } from "react-google-login";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FACEBOOK_APP_ID, GOOGLE_CLIENT_ID } from "../app/config";
+import {gapi} from "gapi-script";
+import axios from "axios";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -58,6 +60,27 @@ function LoginPage() {
    
   };
 
+
+//   FB.login(function(response) {
+//   if (response.status === 'connected') {
+//     // Logged into your webpage and Facebook.
+//   } else {
+//     // The person is not logged into your webpage or we are unable to tell. 
+//   }
+// });
+
+
+useEffect(() => {
+        const initClient = () => {
+            gapi.client.init({
+                clientId: GOOGLE_CLIENT_ID,
+                scope: ''
+            });
+        };
+        gapi.load('client:auth2', initClient);
+    });
+
+
   const loginWithFacebook = async (response) => {
     await auth.loginFacebook(response, () => {
       navigate(from, { replace: true });
@@ -73,29 +96,6 @@ function LoginPage() {
   };
 
 
-
-// useEffect(() => {
-//         const initClient = () => {
-//             gapi.client.init({
-//                 clientId: clientId,
-//                 scope: ''
-//             });
-//         };
-//         gapi.load('client:auth2', initClient);
-//     });
-
-    // const onSuccess = (res) => {
-    //     setProfile(res.profileObj);
-    //     console.log("res", res.profileObj)
-    // };
-
-    // const onFailure = (err) => {
-    //     console.log('failed', err);
-    // };
-
-    // const logOut = () => {
-    //     setProfile(null);
-    // };
 
   return (
     <Container maxWidth="xs">

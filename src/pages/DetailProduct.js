@@ -212,11 +212,6 @@ function DetailProduct() {
                           {product.productName}
                         </Typography>
 
-                        <Rating
-                          value={product.rating}
-                          precision={0.2}
-                          readOnly
-                        />
                         <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
                         <Typography
                           sx={{

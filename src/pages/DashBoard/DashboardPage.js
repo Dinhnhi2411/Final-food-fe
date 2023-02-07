@@ -13,14 +13,20 @@ import { getOrder, getOrdersDashboard } from "../../features/order/orderSlice";
 import { getUserList } from "../../features/user/userSlice";
 import LastProduct from "../../features/dashboard/reportStore/LastProduct";
 import Order from "../../features/dashboard/reportStore/Order";
+import editReport from "../../utils/editReport";
 
 export default function DashboardPage() {
   const dispatch = useDispatch();
   const { reports } = useSelector((state) => state?.dashboard);
-  const totalUser = reports?.totalCustomer;
-  const totalOrder = reports?.totalOrder;
-  const totalProduct = reports?.totalProduct;
-  const revenue = reports?.revenue;
+  // const totalUser = reports?.totalCustomer;
+  // const totalOrder = reports?.totalOrder;
+  // const totalProduct = reports?.totalProduct;
+  // const revenue = reports?.revenue;
+
+  const revenue = editReport(reports?.revenue, "total");
+  const totalCustomer = editReport(reports?.totalCustomer, "count");
+  const totalOrder = editReport(reports?.totalOrder, "count");
+  const totalProduct = editReport(reports?.totalProduct, "count");
 
   const rangeDays = getArrayLastDays(7, false, addDays(new Date(), 1)).join(
     ","
@@ -36,49 +42,43 @@ export default function DashboardPage() {
     <Box>
       <Container maxWidth={false}>
         <Grid key="dashboard" container spacing={3}>
-          {revenue?.map((sale) => (
-            <Grid key={sale.count} item lg={3} sm={6} xl={3} xs={12}>
+         
+            <Grid item lg={3} sm={6} xl={3} xs={12}>
               <AppWidgetSummary
                 title="Total Price Sales"
-                total={sale.total}
+                total={revenue?.total}
                 color="primary"
                 icon={"twemoji:dollar-banknote"}
               />
             </Grid>
-          ))}
+      
 
-          {totalUser?.map((user) => (
-            <Grid key={user?.count} item xl={3} lg={3} sm={6} xs={12}>
+            <Grid item xl={3} lg={3} sm={6} xs={12}>
               <AppWidgetSummary
                 title="New Users"
-                total={user.count}
+                total={totalCustomer?.count}
                 color="info"
                 icon={"mdi:account-box"}
               />
             </Grid>
-          ))}
 
-          {totalOrder?.map((order) => (
-            <Grid key={order.count} item xl={3} lg={3} sm={6} xs={12}>
+            <Grid item xl={3} lg={3} sm={6} xs={12}>
               <AppWidgetSummary
                 title="Total Orders"
-                total={order.count}
+                total={totalOrder?.count}
                 color="warning"
                 icon={"typcn:device-desktop"}
               />
             </Grid>
-          ))}
 
-          {totalProduct?.map((product) => (
-            <Grid key={product.count} item xl={3} lg={3} sm={6} xs={12}>
+            <Grid item xl={3} lg={3} sm={6} xs={12}>
               <AppWidgetSummary
                 title="Total Product"
-                total={product.count}
+                total={totalProduct?.count}
                 color="addins"
                 icon={"bi:cart4"}
               />
             </Grid>
-          ))}
 
           <Grid item key={1} xl={12} lg={12} md={12} xs={12}>
             <Order
