@@ -110,34 +110,38 @@ FoodStore will be a place that fully meets, diverse in products, quality and rea
   \*/
 
 /\*\*
-@route PUT /users/customer/:id
-@description Update customer profile
-@body {name, avataUrl, address}
-@access Login required
-\*/
+
+- @route PUT /users/customer/:id
+- @description Update customer profile
+- n@body {name, avataUrl, address}
+- @access Login required
+  \*/
 
 #### Seller
 
 /\*\*
-@route GET /users
-@description Get all users
-@body
-@access Login required
-\*/
+
+- @route GET /users
+- @description Get all users
+- @body
+- @access Login required
+  \*/
 
 /\*\*
-@route DELETE /users/delete/:id
-@description Delete user
-@body
-@access Login requried
-\*/
+
+- @route DELETE /users/delete/:id
+- @description Delete user
+- @body
+- @access Login requried
+  \*/
 
 /\*\*
-@route PUT /users/customer/:id
-@description Update customer profile
-@body {name, avataUrl, address}
-@access Login required
-\*/
+
+- @route PUT /users/customer/:id
+- @description Update customer profile
+- @body {name, avataUrl, address}
+- @access Login required
+  \*/
 
 ### Product APIs
 
@@ -317,7 +321,7 @@ FoodStore will be a place that fully meets, diverse in products, quality and rea
 
 ## Link Demo
 
-![](https://yuen-final-food.netlify.app)
+[Mini Food](https://yuen-final-food.netlify.app)
 
 ## View app display
 
