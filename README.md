@@ -315,7 +315,9 @@ FoodStore will be a place that fully meets, diverse in products, quality and rea
 
 ![](https://i.imgur.com/5DbHT3X.png)
 
-## Link Demo ![](https://yuen-final-food.netlify.app)
+## Link Demo
+
+![](https://yuen-final-food.netlify.app)
 
 ## View app display
 
