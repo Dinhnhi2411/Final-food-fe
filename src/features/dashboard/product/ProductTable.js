@@ -22,7 +22,6 @@ import { useEffect } from "react";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import { useDispatch, useSelector } from "react-redux";
 import {  NavLink } from "react-router-dom";
-import PaginationBar from "../../../components/pagination/PaginationBar";
 import SearchInput from "../../../components/searchInput/SearchInput";
 import useAuth from "../../../hooks/useAuth";
 import { fCurrency } from "../../../utils/numberFormat";
@@ -166,6 +165,8 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
       sx={{
+        display: "flex",
+        flexDirection:{xs:"column", md:"row", lg:"row"},
         pl: { sm: 2 },
         pr: { xs: 1, sm: 1 },
         ...(numSelected > 0 && {
@@ -289,7 +290,7 @@ export default function ProductTable() {
         open={open}
       />
           <Table
-            sx={{ minWidth: 750 }}
+            sx={{ minWidth: 1000}}
             aria-labelledby="tableTitle"
             size={"medium"}
           >

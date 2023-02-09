@@ -74,7 +74,7 @@ useEffect(() => {
         const initClient = () => {
             gapi.client.init({
                 clientId: GOOGLE_CLIENT_ID,
-                scope: ''
+                scope: 'email'
             });
         };
         gapi.load('client:auth2', initClient);

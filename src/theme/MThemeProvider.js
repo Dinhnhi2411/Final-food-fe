@@ -102,8 +102,8 @@ function MThemeProvider({ children }) {
       neutral: GREY[200],
       },
       text: {
-      primary: GREY[800],
-      secondary: GREY[600],
+      primary: GREY[600],
+      secondary: GREY[700],
       disabled: GREY[500],
     },
     },

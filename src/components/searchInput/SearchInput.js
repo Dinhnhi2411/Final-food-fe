@@ -21,7 +21,9 @@ function SearchInput({ handleSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <TextField
+        color="secondary" focused
         value={searchQuery}
+        
         placeholder="Search by name"
         onChange={(event) => setSearchQuery(event.target.value)}
         sx={{ width: 300 }}

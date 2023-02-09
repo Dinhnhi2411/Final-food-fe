@@ -21,14 +21,19 @@ import OrderPage from "../pages/OrderPage";
 import RegisterPage from "../pages/RegisterPage";
 import StorePage from "../pages/StorePage";
 import AuthRequire from "./AuthRequired";
-
+import "../theme/App.css"
 function Router() {
   let location = useLocation();
   let state = location.state;
 
   return (
     <>
-      <Routes>
+      <Routes  className="App"
+       location={
+      location.state?.backgroundLocation
+      ? location.state.backgroundLocation
+      : location
+    }>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="/store" element={<StorePage />} />

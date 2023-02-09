@@ -92,7 +92,7 @@ function CartCheckOrder({ cartCount }) {
   };
 
   return (
-    <Container spacing={3} sx={{ width: 1, p: 2 }} className="cart-container">
+    <Container spacing={3} sx={{ width: 1, p: 2, mb:2 }} className="cart-container">
       <FormProvider
         methods={methods}
         onSubmit={handleSubmit(handleConfirmtion)}

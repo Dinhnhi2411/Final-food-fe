@@ -371,7 +371,7 @@ export default function UserPage() {
                                 <TableCell align="left">
                                   <Typography
                                     variant="subtitle2"
-                                    sx={{ color: "text.primary" }}
+                                    sx={{ color: "initial" }}
                                   >
                                     {user?.name}
                                   </Typography>

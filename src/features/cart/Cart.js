@@ -84,7 +84,7 @@ function Cart({ cartCount, setCartCount }) {
                       <Button
                         size="small"
                         sx={{
-                          color: "#000",
+                          color: "primary",
                         }}
                         onClick={(e) => {
                           handleDel(cart._id);

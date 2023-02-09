@@ -88,6 +88,7 @@ function AppBarMenu() {
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
+    
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
@@ -117,13 +118,13 @@ function AppBarMenu() {
         onClick={handleMenuClose}
         to="/order"
         component={RouterLink}
-        sx={{ mx: 1, fontFamily: "Comic Sans MS" }}
+        sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000"}}
       >
         My Oder
       </MenuItem>
       {!user ? (
         <MenuItem
-          sx={{ mx: 1, fontFamily: "Comic Sans MS" }}
+          sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000" }}
           onClick={handleClickOpen}
         >
           Account Settings
@@ -133,7 +134,7 @@ function AppBarMenu() {
           onClick={handleMenuClose}
           to="/account"
           component={RouterLink}
-          sx={{ mx: 1, fontFamily: "Comic Sans MS" }}
+          sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000" }}
         >
           Account Settings
         </MenuItem>
@@ -143,7 +144,7 @@ function AppBarMenu() {
           onClick={handleMenuClose}
           to="/dashboard"
           component={RouterLink}
-          sx={{ mx: 1, fontFamily: "Comic Sans MS" }}
+          sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000" }}
         >
           Dashboard
         </MenuItem>
@@ -154,14 +155,14 @@ function AppBarMenu() {
       {!user ? (
         <MenuItem
           onClick={handleLogin}
-          sx={{ m: 1, fontFamily: "Comic Sans MS" }}
+          sx={{ m: 1, fontFamily: "Comic Sans MS", color:"#000" }}
         >
           Login
         </MenuItem>
       ) : (
         <MenuItem
           onClick={handleLogout}
-          sx={{ m: 1, fontFamily: "Comic Sans MS" }}
+          sx={{ m: 1, fontFamily: "Comic Sans MS", color:"#000" }}
         >
           Logout
         </MenuItem>

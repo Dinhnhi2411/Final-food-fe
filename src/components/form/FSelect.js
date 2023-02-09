@@ -13,6 +13,7 @@ function FSelect({ name, children, ...other }) {
                     {...field}
                     select
                     fullWidth
+                    color="secondary" focused 
                     SelectProps={{ native: true }}
                     error={!!error}
                     helperText={error?.message}

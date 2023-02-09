@@ -29,6 +29,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                   mb: 2,
                   display: "flex",
                   justifyContent: "space-between",
+                  
                 }}
               >
                 <ButtonStatus status={order?.status} />
@@ -47,6 +48,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                   fontSize: 15,
                   fontWeight: 500,
                   textAlign: "center",
+                  color:"#000"
                 }}
               >
                 MINI FOOD
@@ -58,26 +60,26 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                 Tel: (+84) 368634491
               </Typography>
               <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
-              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600 }}>
+              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600 , color:"#000"}}>
                 CodeID: {order?._id}
               </Typography>
 
-              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600 }}>
+              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600 , color:"#000"}}>
                 Buyer Name: {order?.name}
               </Typography>
 
-              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600 }}>
+              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600, color:"#000" }}>
                 Address Shiping: {order?.addressShiping}
               </Typography>
 
-              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600 }}>
+              <Typography sx={{ mb: 2, fontSize: 13, fontWeight: 600, color:"#000" }}>
                 Phone: {order?.phone}
               </Typography>
 
               <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
               {order.products.map((product) => (
                 <>
-                  <Typography sx={{ fontSize: 13, mb: 2, fontWeight: 600 }}>
+                  <Typography sx={{ fontSize: 13, mb: 2, fontWeight: 600, color:"#000" }}>
                     Product: {product?.product.productName}
                   </Typography>
 
@@ -89,6 +91,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                       display: "flex",
                       justifyContent: "space-between",
                       flexDirection: "row",
+                      color:"#000"
                     }}
                   >
                     <span>Price:</span>
@@ -103,6 +106,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                       display: "flex",
                       justifyContent: "space-between",
                       flexDirection: "row",
+                      color:"#000"
                     }}
                   >
                     <span>Amount:</span>
@@ -120,6 +124,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                   display: "flex",
                   justifyContent: "space-between",
                   flexDirection: "row",
+                  color:"#000"
                 }}
               >
                 <span>Total price:</span>

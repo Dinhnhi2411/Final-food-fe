@@ -39,6 +39,7 @@ export default function ProductSort({ handleDispatch }) {
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <FSelect
+        
         name="sortBy"
         size="small"
         InputProps={{
@@ -50,7 +51,7 @@ export default function ProductSort({ handleDispatch }) {
         }}
       >
         {SORT_BY_OPTIONS.map((option) => (
-          <option key={option.value} value={option.value} sx={{ p: 4 }}>
+          <option key={option.value} value={option.value} sx={{ p: 4,  }}>
             {option.label}
           </option>
         ))}

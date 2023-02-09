@@ -102,8 +102,8 @@ const BannerContainer = styled.span`
     transform-origin: center;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.5);
-    height: 80px;
-    width: 35px;
+    height: 60px;
+    width: 20px;
     color: #fff;
     border-radius: 4px;
     display: flex;
@@ -131,8 +131,8 @@ const BannerContainer = styled.span`
     transform-origin: center;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.5);
-    height: 80px;
-    width: 35px;
+    height: 60px;
+    width: 20px;
     color: #fff;
     border-radius: 4px;
     display: flex;

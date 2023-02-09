@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import useAuth from "../../hooks/useAuth";
 import { createReview } from "./reviewSlice";
 import { toast } from "react-toastify";
+import { orange } from "@mui/material/colors";
 
 
 function ReviewForm({ productId }) {
@@ -30,13 +31,15 @@ function ReviewForm({ productId }) {
       <Avatar src={user?.avatarUrl} alt={user?.name} />
       <TextField
         fullWidth
+       
         size="small"
         value={content}
         placeholder="Write a comment…"
         onChange={(event) => setContent(event.target.value)}
         sx={{
+          
           ml: 2,
-          mr: 1,
+          mr: 1, 
           "& fieldset": {
             borderWidth: `1px !important`,
             borderColor: (theme) =>

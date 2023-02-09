@@ -4,10 +4,11 @@ import { Box } from "@mui/system";
 
 function MainFooter() {
   return (
-    <Box sx={{ height: 150, background: "white" }}>
+    <Box sx={{ height: 150, backgroundColor: "primary.light" }}>
       <Box
         sx={{
-          mb: 2,
+         
+          
           display: "flex",
           flexDirection: { xs: "column",md: "column", lg: "row" },
           justifyContent: "space-around",
@@ -17,37 +18,37 @@ function MainFooter() {
           <Box m={2}>
             <Typography
               sx={{
-                backgroundColor: "#fff",
+                backgroundColor: "primary.light",
                 fontSize: { xs: 16, md: 18, lg: 25 },
-                lineHeight: 3,
+                lineHeight: 1,
                 fontFamily: "Comic Sans MS",
               }}
             >
               MiniFood
               <Typography
                 sx={{
-                  fontSize: { xs: 14, md: 16, lg: 18 },
+                  fontSize: { xs: 15, md: 16, lg: 18 },
                 }}
               >
                 🏠 Address: 12 Lý Thường Kiệt, Quận 11, TpHCM
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 14, md: 16, lg: 18 },
+                  fontSize: { xs: 15, md: 16, lg: 18 },
                 }}
               >
                 📞 Hotline: 0368634491
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 14, md: 16, lg: 18 },
+                  fontSize: { xs: 15, md: 16, lg: 18 },
                 }}
               >
                 💌 Email: minifood@gmail.com
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 14, md: 16, lg: 18 },
+                  fontSize: { xs: 15, md: 16, lg: 18 },
                 }}
               >
                 🔔 Fanpage: minifood
@@ -57,7 +58,7 @@ function MainFooter() {
         </Box>
 
         <Box p={1} m={1} >
-          <Typography pb={1} sx={{ fontSize: { xs: 14, md: 16, lg: 18 } }}>
+          <Typography pb={1} sx={{ fontSize: { xs: 15, md: 16, lg: 18 } }}>
             Delivery & Payments
           </Typography>
           <Box

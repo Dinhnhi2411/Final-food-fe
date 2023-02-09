@@ -78,10 +78,10 @@ export default function MultiFilePreview({
                       right: 6,
                       position: "absolute",
                       color: "common.white",
-                      bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
+                      bgcolor: (theme) => alpha(theme.palette.grey[500], 0.72),
                       "&:hover": {
                         bgcolor: (theme) =>
-                          alpha(theme.palette.grey[900], 0.48),
+                          alpha(theme.palette.grey[500], 0.48),
                       },
                     }}
                   >

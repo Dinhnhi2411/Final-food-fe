@@ -86,17 +86,23 @@ function DetailProduct() {
       <Breadcrumbs
         aria-label="breadcrumb"
         sx={{
+         
           mt: { xs: 3, md: 5 },
           mb: { xs: 1, md: 2 },
           fontSize: { xs: 18, md: 25 },
           fontWeight: 600,
         }}
       >
-        <Link underline="hover" component={RouterLink} to="/store">
+        <Link 
+        sx={{color:"#000"}}
+        underline="hover" 
+        component={RouterLink} 
+        to="/store"
+        >
           Mini Food
         </Link>
         <Typography
-          color="text.primary"
+          color="grey.600"
           sx={{
             fontSize: { xs: 16, md: 20 },
             fontWeight: 400,

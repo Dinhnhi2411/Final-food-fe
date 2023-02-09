@@ -53,6 +53,7 @@ function StorePage() {
           alignItems={{ sm: "center" }}
           justifyContent="center"
           mb={2}
+         
         >
           <SearchInput handleSubmit={handleSubmit} />
           <ProductSort handleDispatch={handleDispatch} />

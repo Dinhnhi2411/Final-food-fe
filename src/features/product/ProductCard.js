@@ -75,6 +75,7 @@ export default function ProductCard({ product, isLoading }) {
                   fontSize: { xs: 14, md: 16, lg: 18 },
                   display: "flex",
                   justifyContent: "center",
+                  color:"#000"
                 }}
               >
                 {fCurrency(product.price)} / {product.unit}

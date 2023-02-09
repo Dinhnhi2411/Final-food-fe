@@ -68,6 +68,8 @@ function ReviewList({ productId }) {
             count={Math.ceil(totalReviews/5)}
             page={page}
             onChange={handleChange}
+            color="primary"
+            variant="outlined" 
             />
       </Stack>
       {renderReviews}
