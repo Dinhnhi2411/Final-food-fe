@@ -1,9 +1,8 @@
-import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { banner } from "../../data/Data";
-import "./Banner.css";
+
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { SmoothHorizontalScrolling } from "../../utils";
@@ -59,7 +58,6 @@ function Banner(props) {
   return (
     <>
       <BannerContainer draggable="false">
-        
         <BannerSlider
           ref={sliderRef}
           draggable="true"

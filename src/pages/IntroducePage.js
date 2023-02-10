@@ -8,6 +8,7 @@ function IntroducePage() {
       <Card
         sx={{
           m: 3,
+          color:"#000"
         }}
       >
         <Typography

@@ -35,7 +35,7 @@ export default function LastOrders(props) {
     <Card>
       <CardHeader title="Latest Orders" />
       <PerfectScrollbar>
-        <Table sx={{ minWidth: 800 }}>
+        <Table sx={{ minWidth: 800}}>
           <TableHead>
             <TableRow>
               <TableCell>Code ID</TableCell>
@@ -58,7 +58,7 @@ export default function LastOrders(props) {
               })
             
               return (
-              <TableRow hover key={order?._id}>
+              <TableRow hover key={order?._id} >
                 <TableCell>{order?._id}</TableCell>
                 <TableCell>{order?.name}</TableCell>
                 <TableCell>

@@ -20,14 +20,14 @@ function MainLayout() {
       >
         <MainHeader />
         <AlertMsg />
-        <span className="switch">
+        <Box sx={{ m: 2 }} className="switch">
           <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
           <Switch
             type="checkbox"
             onChange={toggleTheme}
             checked={theme === "dark"}
           />
-        </span>
+        </Box>
         <Outlet />
         <Box sx={{ flexGrow: 1 }} />
         <MainFooter />

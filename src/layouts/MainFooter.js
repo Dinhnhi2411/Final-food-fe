@@ -4,61 +4,70 @@ import { Box } from "@mui/system";
 
 function MainFooter() {
   return (
-    <Box sx={{ height: 150, backgroundColor: "primary.light" }}>
+    <Box sx={{ minHeight:250 , backgroundColor: "#000" }}>
       <Box
         sx={{
-         
           
           display: "flex",
-          flexDirection: { xs: "column",md: "column", lg: "row" },
+          flexDirection: { xs: "column", md: "column", lg: "row" },
           justifyContent: "space-around",
         }}
       >
-        <Box>
-          <Box m={2}>
+  
+          <Box sx={{color:"#fff", }}>
             <Typography
               sx={{
-                backgroundColor: "primary.light",
-                fontSize: { xs: 16, md: 18, lg: 25 },
-                lineHeight: 1,
+                mt: 3,
+                backgroundColor: "#000",
+                fontSize: { xs: 16, md: 17, lg: 25 },
+                lineHeight: 2,
                 fontFamily: "Comic Sans MS",
+                
               }}
             >
               MiniFood
+            </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 15, md: 16, lg: 18 },
+                  fontSize: { xs: 14, md: 16, lg: 17 },
+                 
+                  mb:1,
                 }}
               >
                 🏠 Address: 12 Lý Thường Kiệt, Quận 11, TpHCM
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 15, md: 16, lg: 18 },
+                  fontSize: { xs: 14, md: 16, lg: 17 },
+                  
+                  mb:1
                 }}
               >
                 📞 Hotline: 0368634491
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 15, md: 16, lg: 18 },
+                  fontSize: { xs: 14, md: 16, lg: 17 },
+                  
+                  mb:1
                 }}
               >
                 💌 Email: minifood@gmail.com
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 15, md: 16, lg: 18 },
+                  fontSize: { xs: 14, md: 16, lg: 17 },
+                  
                 }}
               >
                 🔔 Fanpage: minifood
               </Typography>
-            </Typography>
+           
           </Box>
-        </Box>
+      
 
-        <Box p={1} m={1} >
-          <Typography pb={1} sx={{ fontSize: { xs: 15, md: 16, lg: 18 } }}>
+        <Box p={1} mt={3} >
+          <Typography pb={1} sx={{ fontSize: { xs: 14, md: 16, lg: 17 }, color:"#fff", textAlign:"center" }} >
             Delivery & Payments
           </Typography>
           <Box

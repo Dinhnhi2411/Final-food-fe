@@ -1,3 +1,4 @@
+
 .App {
   /* background-color:var(--background-color); */
   min-height: 100vh;
@@ -12,7 +13,8 @@
 }
 
 #light {
-  background-color: #f3ebf6;
+  background-color:beige;
+
   color: black;
  
 }

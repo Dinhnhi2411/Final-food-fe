@@ -67,7 +67,7 @@ function SliderShow() {
         {slider.map((item, idx) => (
           <Box
             key={item._id}
-            className={`slideshowDot${index === idx ? " acBoxe" : ""}`}
+            className={`slideshowDot ${index === idx ? " acBoxe" : ""}`}
             onClick={() => {
               setIndex(idx);
             }}

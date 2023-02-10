@@ -17,7 +17,7 @@ const Carousel = ({ products, page }) => {
           width: 150,
           height: 120,
           mt: 1,
-          borderRadius: 1,
+          borderRadius: 2,
           border: "3px solid #fff",
         }}
         
@@ -32,7 +32,8 @@ const Carousel = ({ products, page }) => {
         mt:1,
         mb:2,
         textAlign:"center",
-        fontWeight:600
+        fontWeight:500,
+        fontFamily: "Comic Sans MS"
       }}
       >{item.productName}</Typography>
     </Box>

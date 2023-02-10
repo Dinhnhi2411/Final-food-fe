@@ -4,10 +4,13 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import "./product.css";
-import { CardActionArea, Stack } from "@mui/material";
+import { Box, CardActionArea, Paper, Stack } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { fCurrency } from "../../utils/numberFormat";
 import SkeletonLoading from "../../components/skeletonLoading/SkeletonLoading";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import IconButton from "@mui/material/IconButton";
+import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
 
 export default function ProductCard({ product, isLoading }) {
   const navigate = useNavigate();
@@ -20,36 +23,31 @@ export default function ProductCard({ product, isLoading }) {
         sx={{
           width: "100%wh",
           borderRadius: 5,
-          m: 3,
-          // backgroundColor: "primary.lighter",
+          m: 1,
         }}
       >
-        {isLoading ? (
-          <SkeletonLoading
-            isLoading={isLoading}
-            style={{ width: "100%", pt: "100%" }}
-          />
-        ) : (
+        <>
           <CardActionArea>
             <CardMedia
               className="card_media"
               sx={{
                 height: {
                   xs: 130,
-                  md: 200,
-                  lg: 250,
+                  md: 150,
+                  lg: 180,
                 },
-               
+                width: "100%",
               }}
               component="img"
               image={product.image[0]}
               alt=""
               key={product._id}
             />
+
             <CardContent
               sx={{
-                height: { xs: 90 },
-                mt: { xs: 2 },
+                height: { xs: 80 },
+                m: 1,
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -61,8 +59,9 @@ export default function ProductCard({ product, isLoading }) {
                   color: "primary.darker",
                   display: "flex",
                   justifyContent: "center",
-                  fontSize: { xs: 14, md: 18, lg: 20 },
-                  fontWeight: "700",
+                  fontSize: { xs: 14, md: 16, lg: 18 },
+                  fontWeight: 500,
+                  fontFamily: "Comic Sans MS"
                 }}
               >
                 {product.productName}
@@ -71,18 +70,19 @@ export default function ProductCard({ product, isLoading }) {
               <Typography
                 variant="subtitle1"
                 sx={{
-                  fontWeight: 600,
+                  fontWeight: 500,
                   fontSize: { xs: 14, md: 16, lg: 18 },
                   display: "flex",
                   justifyContent: "center",
-                  color:"#000"
+                  color: "#000",
+                  fontFamily: "Comic Sans MS"
                 }}
               >
-                {fCurrency(product.price)} / {product.unit}
+                price: {fCurrency(product.price)}
               </Typography>
             </CardContent>
           </CardActionArea>
-        )}
+        </>
       </Card>
     </>
   );

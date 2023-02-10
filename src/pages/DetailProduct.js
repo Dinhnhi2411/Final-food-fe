@@ -38,11 +38,10 @@ function DetailProduct() {
   const [page, setPage] = useState(1)
   const dispatch = useDispatch();
   const params = useParams();
-  const { id: productId } = useParams();
   const id = params.id;
   const navigate = useNavigate();
   let { user } = useAuth();
-  const {products} = useSelector((state)=> state.product)
+  const {products} = useSelector((state)=> state?.product)
   useEffect(() => {
     const getSingleProducts = async () => {
       setLoading(true);
@@ -126,9 +125,9 @@ function DetailProduct() {
             ) : (
               <>
                 { product && (
-                  <Box key={product._id} sx={{ p: 2 }} className="detail-page">
-                    <Grid key={product._id} container>
-                      <Grid item xs={12} md={6} key={product._id}>
+                  <Box key={product?._id} sx={{ p: 2 }} className="detail-page">
+                    <Grid key={product?._id} container>
+                      <Grid item xs={12} md={6} key={product?._id}>
                         <Box p={2}>
                           <Box
                             sx={{
@@ -144,7 +143,7 @@ function DetailProduct() {
                           >
                             <Card
                               component="img"
-                              src={!img ? product.image[0] : img}
+                              src={!img ? product?.image[0] : img}
                               alt="product"
                             />
                           </Box>
@@ -267,6 +266,7 @@ function DetailProduct() {
                         >
                           {product.description}
                         </Typography>
+                        <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
 
                         <Stack direction="row" spacing={2} sx={{ mt: 5 }}>
                           <Button
@@ -295,12 +295,10 @@ function DetailProduct() {
                   <Box>
                     <Typography
                     sx={{
-                      fontSize: { xs: 15, md: 18, lg: 20 },
-                      fontFamily: "Comic Sans MS",
                       ml:3
                     }}
                     >
-                      ORTHER PRODUCTS 
+                      Orther products
                     </Typography>
                     <Carousel page={page} products={products}/>
                   </Box>

@@ -1,4 +1,4 @@
-import { Button, Container } from "@mui/material";
+import { Button, Container, Divider } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,6 +17,8 @@ function ProductTopList() {
 
   return (
     <Container>
+     
+
       <Box
         sx={{
           mt: 5,
@@ -37,7 +39,9 @@ function ProductTopList() {
           }}
         >
           Top Selling
+       
         </Button>
+         <Divider />
         <ProductList products={productsTopSelling} isLoading={isLoasing} />
       </Box>
     </Container>

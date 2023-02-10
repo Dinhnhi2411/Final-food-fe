@@ -5,6 +5,9 @@ import React from 'react'
 function ProductDes({product}) {
   return (
     <Box>
+      <Typography fontWeight={600}>
+            DESCRIPTION
+        </Typography>
         <Typography>
             {product.description}
         </Typography>

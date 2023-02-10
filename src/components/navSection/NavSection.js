@@ -33,7 +33,6 @@ const ListItemIconStyle = styled(ListItemIcon)({
 });
 
 function NavItem({ item, active }) {
-  const theme = useTheme();
 
   const isActiveRoot = active(item.path);
 

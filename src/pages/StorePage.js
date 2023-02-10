@@ -26,7 +26,7 @@ function StorePage() {
     isLoading,
     products,
     error,
-  } = useSelector((state) => state.product);
+  } = useSelector((state) => state?.product);
 
   const handleDispatch = (value) => {
     dispatch(handleChangeFilters(value));

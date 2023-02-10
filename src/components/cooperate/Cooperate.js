@@ -3,8 +3,9 @@ import React from "react";
 import { coop } from "../../data/Data";
 
 function Cooperate() {
+
   return (
-    <Container>
+    <Container sx={{ backgroundColor:"primary.lighter"}}>
       <Divider />
       <Grid container spacing={1} mt={0}>
         {coop.map((item, index) => (

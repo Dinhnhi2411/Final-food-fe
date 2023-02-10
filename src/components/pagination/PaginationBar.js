@@ -20,6 +20,9 @@ function PaginationBar({ page, setPage, totalPage }) {
         onChange={handleChange}
         showFirstButton
         showLastButton
+        variant="outlined" 
+        color="primary"
+        size="small"
       />
     </Stack>
   );

@@ -96,7 +96,7 @@ function MThemeProvider({ children }) {
       zIndex: {
         tooltip: 999999,
       },
-       background: {
+      background: {
       paper: '#fff',
       default: GREY[100],
       neutral: GREY[200],
@@ -106,6 +106,7 @@ function MThemeProvider({ children }) {
       secondary: GREY[700],
       disabled: GREY[500],
     },
+  
     },
   };
 
