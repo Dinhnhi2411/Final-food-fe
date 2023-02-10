@@ -32,8 +32,6 @@ const initialState = {
   productsNew: [],
   productsDiscount: [],
 
- 
-
    filters: {
     sortBy: "",
   },

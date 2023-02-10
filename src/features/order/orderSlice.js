@@ -8,11 +8,13 @@ const initialState = {
   isLoading: false,
   error: null,
   orders: [],
-  ordersDashboard: [],
   page: 1,
   totalOrders: 0,
+
+  ordersDashboard: [],
   totalOrderDashboard: 0,
   totalPageDashboard:0,
+
   currentPage: 1,
   totalPages: 1,
   filters: {},
@@ -68,6 +70,8 @@ const slice = createSlice({
 
 export default slice.reducer;
 
+//  CREATE ORDER
+
 export const createOrder =
   ({ name, addressShip, phone, products, priceShip, total, userId }) =>
   async (dispatch) => {
@@ -89,6 +93,8 @@ export const createOrder =
     }
   };
 
+// GET ORDER 
+
 export const getOrder =
   ({ page, limit = 5 }) =>
   async (dispatch) => {
@@ -102,6 +108,8 @@ export const getOrder =
       toast.error(error.message);
     }
   };
+
+// UPDATE ORDER
 
 export const updateOrder =
   ({ id, status }) =>
@@ -120,6 +128,7 @@ export const updateOrder =
   };
 
 // GET ALL ORDER DASBOARD
+
 export const getOrdersDashboard =
   ({ page, limit = 5, userId, status }) =>
   async (dispatch) => {

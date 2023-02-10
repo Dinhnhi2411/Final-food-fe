@@ -1,12 +1,10 @@
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   Box,
   Button,
   Card,
   CardHeader,
   Divider,
-  IconButton,
   List,
   ListItem,
   ListItemAvatar,
@@ -15,13 +13,13 @@ import {
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fDate, fToNow } from "../../../utils/formatTime";
+import { fDate} from "../../../utils/formatTime";
 import { getProductList } from "../../product/productSlice";
 
 export default function LastProduct(props) {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
-
+  // eslint-disable-next-line
   const [limit, setLimit] = useState(5);
 
   useEffect(() => {

@@ -1,10 +1,8 @@
 import React, { useCallback } from "react";
 import Button from "@mui/material/Button";
-
 import { useDispatch, useSelector } from "react-redux";
 import { LoadingButton } from "@mui/lab";
 import { useForm } from "react-hook-form";
-
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Card, Grid } from "@mui/material";
@@ -141,10 +139,8 @@ export default function FormEdit({ product, handleClose }) {
 
               <FTextField name="price" label="Price" />
               <FTextField name="priceSale" label="Price Sale" />
-
               <FTextField name="unit" label="Unit" />
             </Box>
-
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3 }}>
               <FTextField name="description" multiline label="Description" />
             </Stack>

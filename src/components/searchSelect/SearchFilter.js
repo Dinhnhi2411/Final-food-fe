@@ -26,7 +26,6 @@ function SearchFilter({ handleSubmit }) {
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        // sx={{ minWidth: { sx: "auto", md: 200 }, height: 40, mr: 1 }}
         value={searchQuery}
         label="Status"
         onChange={(event) => setSearchQuery(event.target.value)}
@@ -54,7 +53,6 @@ function SearchFilter({ handleSubmit }) {
                   color="secondary"
                   aria-label="Search by status"
                 >
-                  {/* <FilterAltIcon /> */}
                   Filter
                 </Button>
               </InputAdornment>

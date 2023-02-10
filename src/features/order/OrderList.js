@@ -1,6 +1,5 @@
 import {
   Avatar,
-  Button,
   Card,
   Divider,
   Grid,
@@ -48,9 +47,11 @@ function OrderList({ orders }) {
             });
             return (
               <Grid key={item._id} item xs={12} md={4} lg={3}>
-                <Card sx={{ p: 3, mt: 1, mr: 2, minHeight: 470,  color:"#000"}}>
+                <Card
+                  sx={{ p: 3, mt: 1, mr: 2, minHeight: 470, color: "#000" }}
+                >
                   <Box sx={{ mb: 2 }}>
-                    <ButtonStatus status ={item?.status} />
+                    <ButtonStatus status={item?.status} />
                   </Box>
 
                   <Typography>Name : {item.name}</Typography>

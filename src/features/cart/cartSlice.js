@@ -38,6 +38,8 @@ const slice = createSlice({
 
 export default slice.reducer;
 
+//  GET CART
+
 export const getCart =
   ({ page, limit = PER_PAGE }) =>
   async (dispatch) => {
@@ -54,6 +56,8 @@ export const getCart =
     }
   };
 
+  // ADD CART
+
 export const addCart =
   ({ productId }) =>
   async (dispatch) => {
@@ -67,6 +71,8 @@ export const addCart =
     }
   };
 
+  // UPDATE CART
+
 export const updateCart = (id, amount) => async (dispatch) => {
   dispatch(slice.actions.startLoading());
   try {
@@ -78,6 +84,8 @@ export const updateCart = (id, amount) => async (dispatch) => {
     dispatch(slice.actions.hasError(error.message));
   }
 };
+
+//DELETE CART
 
 export const deleteCart = (id) => async (dispatch) => {
   dispatch(slice.actions.startLoading());

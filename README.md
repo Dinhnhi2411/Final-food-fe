@@ -317,7 +317,7 @@ FoodStore will be a place that fully meets, diverse in products, quality and rea
 
 ## Rlational Diagram
 
-![](https://i.imgur.com/5DbHT3X.png)
+![](https://user-images.githubusercontent.com/109861294/218176913-5d16c713-0c1d-4ed0-bba6-fbd09e2c45e1.png)
 
 ## Link Demo
 

@@ -37,10 +37,10 @@
 }
 
 .slideshowDot.active {
-    background-color: #e8f1d0;
+    background-color: #a7eb31;
 }
 
-
+/* Nếu cửa sổ trình duyệt có kích thước 600px trở xuống */
 @media only screen and (max-width: 600px) {
     .slide {
         display: inline-block;

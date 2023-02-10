@@ -1,6 +1,12 @@
-import { alpha, Collapse, List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import {
+  Collapse,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import { useState } from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import Iconify from "../Iconify/Iconify";
 import {
   matchPath,
@@ -10,12 +16,9 @@ import {
 import { Box } from "@mui/system";
 import PropTypes from "prop-types";
 
-
-
 const ListItemStyle = styled((props) => (
   <ListItemButton disableGutters {...props} />
 ))(({ theme }) => ({
-  
   height: 48,
   position: "relative",
   textTransform: "capitalize",
@@ -33,7 +36,6 @@ const ListItemIconStyle = styled(ListItemIcon)({
 });
 
 function NavItem({ item, active }) {
-
   const isActiveRoot = active(item.path);
 
   const { title, path, icon, info, children } = item;
@@ -47,8 +49,7 @@ function NavItem({ item, active }) {
   const activeRootStyle = {
     color: "primary.main",
     fontWeight: "fontWeightMedium",
-    bgcolor:"primary.lighter"
-   
+    bgcolor: "primary.lighter",
   };
 
   const activeSubStyle = {

@@ -3,7 +3,6 @@ import { Stack } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
-import PaginationBar from "../../components/pagination/PaginationBar";
 import ReviewCard from "./ReviewCard";
 import { getReviews } from "./reviewSlice";
 function ReviewList({ productId }) {
@@ -13,13 +12,10 @@ function ReviewList({ productId }) {
     reviewsById,
     totalReviews,
     isLoading,
-    // currentPage,
-    totalPages
   } = useSelector(
     (state) => ({
       reviewsByProduct: state?.review?.reviewsByProduct[productId],
       totalReviews: state?.review.totalReviewsByProduct[productId],
-      // currentPage: state?.review?.currentPageByProduct[productId] || 1,
       reviewsById: state?.review?.reviewsById,
       isLoading: state?.review?.isLoading,
       totalPages:state?.review?.totalPages
@@ -41,7 +37,6 @@ function ReviewList({ productId }) {
 
   if (reviewsByProduct) {
     const reviews = reviewsByProduct?.map((reviewId) => reviewsById[reviewId]);
-    // console.log("review", reviews)
 
     renderReviews = (
       <Stack spacing={1.5}>

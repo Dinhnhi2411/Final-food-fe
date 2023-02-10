@@ -4,13 +4,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import "./product.css";
-import { Box, CardActionArea, Paper, Stack } from "@mui/material";
+import {  CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { fCurrency } from "../../utils/numberFormat";
-import SkeletonLoading from "../../components/skeletonLoading/SkeletonLoading";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import IconButton from "@mui/material/IconButton";
-import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
 
 export default function ProductCard({ product, isLoading }) {
   const navigate = useNavigate();

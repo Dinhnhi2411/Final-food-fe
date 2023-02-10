@@ -64,14 +64,16 @@ function SliderShow() {
       </Box>
 
       <Box className="slideshowDots">
-        {slider.map((item, idx) => (
+        {slider.map((i, idx) => (
           <Box
-            key={item._id}
-            className={`slideshowDot ${index === idx ? " acBoxe" : ""}`}
+            key={idx}
+            className={`slideshowDot ${index === idx ? " active" : ""}`}
             onClick={() => {
               setIndex(idx);
             }}
-          ></Box>
+          >
+
+          </Box>
         ))}
       </Box>
     </Box>

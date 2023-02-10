@@ -1,21 +1,17 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
 import React from "react";
-import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 import ProductDes from "./ProductDes";
 import ProductReviews from "./ProductReviews";
 
 function ProductTabs({ product }) {
-  const { user } = useAuth();
   const { id: productId } = useParams();
-
   const [value, setValue] = React.useState("1");
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  
   return (
     <Box
       sx={{

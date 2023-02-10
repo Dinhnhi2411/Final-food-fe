@@ -2,8 +2,6 @@ import { Alert, Box, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import LoadingScreen from "../components/loadingScreen/LoadingScreen";
 import PaginationBar from "../components/pagination/PaginationBar";
 import OrderList from "../features/order/OrderList";
@@ -23,7 +21,6 @@ function OrderPage() {
         dispatch(getOrder({ page }));
     }
   }, [dispatch, page, user]);
-
 
   return (
     <Container>

@@ -12,16 +12,13 @@ export const SORT_BY_OPTIONS = [
   { value: "Top", label: "Product Top" },
   { value: "New", label: "Product Newest" },
   { value: "Discount", label: "Product Discount" },
-  // { value: "price.desc", label: "Price: High-Low" },
-  // { value: "price.asc", label: "Price: Low-High" },
 ];
 
 const defaultValues = {
   sortBy: "",
 };
 export default function ProductSort({ handleDispatch }) {
-  const { filters } = useSelector((state) => state.product);
-
+  const { filters } = useSelector((state) => state?.product);
   const methods = useForm({ defaultValues, mode: "onChange" });
   const { handleSubmit, reset, watch } = methods;
 
@@ -33,13 +30,12 @@ export default function ProductSort({ handleDispatch }) {
     return () => subscription.unsubscribe();
     // eslint-disable-next-line
   }, [watch]);
-
+  
   const onSubmit = (data) => console.log("data", data);
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <FSelect
-        
         name="sortBy"
         size="small"
         InputProps={{

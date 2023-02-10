@@ -8,7 +8,6 @@ import { fNumber } from "../../../utils/numberFormat";
 
 export default function Customers({ totalCustomers }) {
   const results = calTotalReports(totalCustomers, "count");
- 
 
   return (
     <Card>

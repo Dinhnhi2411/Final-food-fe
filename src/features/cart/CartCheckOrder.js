@@ -29,7 +29,6 @@ const defaultValues = {
 
 function CartCheckOrder({ cartCount }) {
   const { user } = useAuth();
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -44,6 +43,8 @@ function CartCheckOrder({ cartCount }) {
     formState: { isSubmitting },
   } = methods;
 
+  // Tính toán
+  
   let products = [];
   let priceShip = 2;
   let totalPrice = 0;

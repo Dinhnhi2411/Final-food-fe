@@ -37,8 +37,6 @@ export default function SearchHeader({ handleDispatch }) {
   return (
     <form onSubmit={onSubmit}>
       <CustomSearchField
-        // id="standard-basic"
-        // variant="standard"
         value={searchQuery}
         placeholder="Search by name"
         onChange={(event) => setSearchQuery(event.target.value)}

@@ -8,10 +8,13 @@ import AlertMsg from "../components/alertMsg/AlertMsg";
 export const ThemeContext = createContext(null);
 
 function MainLayout() {
+  // SETUP DARK MODE AND LIGHT MODE
+
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <Stack
@@ -20,6 +23,7 @@ function MainLayout() {
       >
         <MainHeader />
         <AlertMsg />
+        
         <Box sx={{ m: 2 }} className="switch">
           <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
           <Switch

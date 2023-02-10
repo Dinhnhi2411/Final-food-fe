@@ -1,7 +1,6 @@
 import React from "react";
 import { Alert, Grid } from "@mui/material";
 import ProductCard from "./ProductCard";
-import ProductCardSkeleton from "./ProductSkeleton";
 import { Box } from "@mui/system";
 
 function ProductList({ products, isLoading }) {
@@ -22,11 +21,9 @@ function ProductList({ products, isLoading }) {
         )}
         {products.map((item, index) => (
           <Grid key={item._id} item xs={6} sm={6} md={4} lg={3}>
-            {isLoading ? (
-              <ProductCardSkeleton />
-            ) : (
+           
               <ProductCard product={item} isLoading={isLoading} />
-            )}
+            
           </Grid>
         ))}
       </Grid>

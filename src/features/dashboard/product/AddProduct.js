@@ -1,10 +1,7 @@
 import React, { useCallback } from "react";
-
-
 import { useDispatch, useSelector } from "react-redux";
 import { LoadingButton } from "@mui/lab";
 import { useForm } from "react-hook-form";
-
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Card, Grid, Stack, Typography } from "@mui/material";
@@ -29,16 +26,13 @@ const defaultValues = {
   price: "",
   priceSale: "",
   unit: "",
-  
   image: null,
   description: "",
 };
 
 function AddProduct() {
   const { isLoading } = useSelector((state) => state.product);
-
   const { user } = useAuth();
-
   const methods = useForm({
     resolver: yupResolver(CreateProductSchema),
     defaultValues,
@@ -75,7 +69,6 @@ function AddProduct() {
       price,
       priceSale,
       unit,
-      
       description,
       image,
     } = data;
@@ -89,13 +82,14 @@ function AddProduct() {
         price,
         priceSale,
         unit,
-       
         description,
         image,
       })
     );
+
     dispatch(getProducts({ id: user._id, page }));
     dispatch(getProducts({ page }));
+
   };
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
@@ -185,13 +179,10 @@ function AddProduct() {
 
               <FTextField name="price" label="Price" />
               <FTextField name="priceSale" label="Price Saler" />
-
               <FTextField name="unit" label="Unit" />
             </Box>
-
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3, mb: 10 }}>
               <FTextField name="description" multiline rows={4} label="Description" />
-
               <LoadingButton
                 type="submit"
                 variant="contained"

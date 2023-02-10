@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import useAuth from "../../hooks/useAuth";
 import { createReview } from "./reviewSlice";
 import { toast } from "react-toastify";
-import { orange } from "@mui/material/colors";
 
 
 function ReviewForm({ productId }) {
@@ -25,13 +24,13 @@ function ReviewForm({ productId }) {
       setContent("");
     }
   };
+
   return (
     <form onSubmit={handleSubmit}>
     <Stack direction="row" alignItems="center">
       <Avatar src={user?.avatarUrl} alt={user?.name} />
       <TextField
         fullWidth
-       
         size="small"
         value={content}
         placeholder="Write a comment…"

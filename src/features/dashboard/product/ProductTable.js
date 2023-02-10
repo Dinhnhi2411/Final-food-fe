@@ -234,6 +234,7 @@ export default function ProductTable() {
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(1);
 
+  // eslint-disable-next-line 
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 
@@ -430,11 +431,6 @@ export default function ProductTable() {
           }}
         >
           {totalProductDashboard ? (
-            // <PaginationBar
-            //   page={page}
-            //   setPage={setPage}
-            //   totalPage={+totalPages}
-            // />
             <Pagination
             count={Math.ceil(totalProductDashboard/10)}
             page={page}

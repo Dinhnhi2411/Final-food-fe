@@ -152,7 +152,6 @@ function AuthProvider({ children }) {
 
     const { user, accessToken } = response.data;
     setSession(accessToken);
-    // dispatchCart(getTotalProducts(user?.cartId?.totalItem));
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -171,7 +170,6 @@ function AuthProvider({ children }) {
     const { user, accessToken } = response.data;
 
     setSession(accessToken);
-    // dispatchCart(getTotalProducts(user?.cartId?.totalItem));
 
     dispatch({
       type: LOGIN_SUCCESS,

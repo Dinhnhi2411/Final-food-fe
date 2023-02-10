@@ -3,9 +3,7 @@ import { FormProvider, FTextField } from "../components/form";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-// import useAuth from "../hooks/useAuth";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
-
 import { Container } from "@mui/system";
 import { LoadingButton } from "@mui/lab";
 import {
@@ -64,6 +62,7 @@ function RegisterPage() {
       setError("responeError", error);
     }
   };
+  
   return (
     <Container maxWidth="xs">
       <Card>

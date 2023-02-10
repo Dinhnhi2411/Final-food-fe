@@ -7,7 +7,7 @@ import { getProductsTopSelling } from "./productSlice";
 
 function ProductTopList() {
   const { isLoasing, productsTopSelling } = useSelector(
-    (state) => state.product
+    (state) => state?.product
   );
   const dispatch = useDispatch();
 
@@ -17,8 +17,6 @@ function ProductTopList() {
 
   return (
     <Container>
-     
-
       <Box
         sx={{
           mt: 5,

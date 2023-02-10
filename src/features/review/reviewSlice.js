@@ -69,6 +69,8 @@ const slice = createSlice({
 });
 export default slice.reducer;
 
+// CREATE REVIEW
+
 export const createReview =
   ({ productId, content, userId }) =>
   async (dispatch) => {
@@ -85,6 +87,8 @@ export const createReview =
       toast.error(error.message);
     }
   };
+
+  // GET ALL REVIEWS
 
 export const getReviews =
   ({ productId, page = 1, limit = REVIEWS_PER_PRODUCT }) =>
@@ -112,13 +116,14 @@ export const getReviews =
     }
   };
 
+// SEND RATING FOR REVIEW
+
 export const sendReviewReaction =
   ({ reviewId, rating, userId }) =>
   async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
       const response = await apiService.post(`/reactions`, {
-        // refPaths: "Review",
         targetId: reviewId,
         userId: userId,
         rating,
@@ -135,6 +140,8 @@ export const sendReviewReaction =
     }
   };
 
+// DELETE REVIEW
+
 export const deleteReview = (reviewId) => async (dispatch) => {
   dispatch(slice.actions.startLoading());
   try {
@@ -147,6 +154,8 @@ export const deleteReview = (reviewId) => async (dispatch) => {
     toast.error(error.message);
   }
 };
+
+// EDIT REVIEW
 
 export const editReview =
   ({ reviewId, content }) =>

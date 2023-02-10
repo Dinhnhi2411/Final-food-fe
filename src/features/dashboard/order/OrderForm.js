@@ -29,7 +29,6 @@ function OrderForm({ orders, handleClose }) {
 
   const {
     handleSubmit,
-
     formState: { isSubmitting },
   } = methods;
 

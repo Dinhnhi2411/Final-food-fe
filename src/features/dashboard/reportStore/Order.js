@@ -1,6 +1,4 @@
-import { BarChart, Category } from "@mui/icons-material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import {
   Box,
   Button,

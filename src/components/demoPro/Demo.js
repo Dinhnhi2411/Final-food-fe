@@ -6,7 +6,13 @@ import "./Demo.css";
 function Demo() {
   return (
     <>
-      <Box className="title_demo" sx={{ fontFamily: "Comic Sans MS", fontSize:{xs:15, sm:18, md:20, lg:30} }}>
+      <Box
+        className="title_demo"
+        sx={{
+          fontFamily: "Comic Sans MS",
+          fontSize: { xs: 15, sm: 18, md: 20, lg: 30 },
+        }}
+      >
         WELCOME TO OUR MINI FOOD !
       </Box>
       <Box className="demo">

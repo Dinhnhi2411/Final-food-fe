@@ -1,4 +1,4 @@
-import { Container, Divider } from '@mui/material'
+import { Container} from '@mui/material'
 import React from 'react'
 import Banner from '../components/banner/Banner'
 import Cooperate from '../components/cooperate/Cooperate'
@@ -8,17 +8,13 @@ import ProductHot from '../features/product/ProductHot'
 import ProductTopList from '../features/product/ProductTopList'
 function HomePage() {
   return (
-    <Container
-    >
-
+    <Container>
       <SliderShow/>
-     
       <Demo/>
       <Banner/>
       <ProductTopList/>
       <ProductHot/>
       <Cooperate/>
-      
     </Container>
   )
 }

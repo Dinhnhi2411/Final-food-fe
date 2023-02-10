@@ -112,7 +112,6 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                     <span>Amount:</span>
                     <span>{product?.amount}</span>
                   </Typography>
-
                  
                 </>
               ))}
@@ -130,6 +129,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                 <span>Total price:</span>
                 <span style={{ color: "red" }}>{fCurrency(order?.total)} </span>
               </Typography>
+              
               <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
 
               <Typography

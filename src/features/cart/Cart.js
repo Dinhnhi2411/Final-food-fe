@@ -1,17 +1,14 @@
 import { Box, Button, Container, Typography } from "@mui/material";
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import "./cart.css";
 import { deleteCart, updateCart } from "./cartSlice";
 
 function Cart({ cartCount, setCartCount }) {
   const { user } = useAuth();
-
   const dispatch = useDispatch();
-  
   // eslint-disable-next-line
   const [amountInput, setAmountInput] = useState(false);
 

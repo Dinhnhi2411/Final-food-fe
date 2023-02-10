@@ -24,7 +24,6 @@ import AuthRequire from "./AuthRequired";
 import "../theme/App.css"
 function Router() {
   let location = useLocation();
-  let state = location.state;
 
   return (
     <>

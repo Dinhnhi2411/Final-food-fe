@@ -6,16 +6,15 @@ import * as Yup from "yup";
 import { useLocation, useNavigate, Link as RouterLink } from "react-router-dom";
 import { Container } from "@mui/system";
 import { LoadingButton } from "@mui/lab";
-import { Alert, Box, Button, Card, CardContent, Divider, IconButton, InputAdornment, Link, Stack, Typography } from "@mui/material";
+import { Alert, Box, Card, CardContent, Divider, IconButton, InputAdornment, Link, Stack, Typography } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import useAuth from "../hooks/useAuth";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
-import { GoogleLogin, useGoogleLogin,  } from "react-google-login";
+import { GoogleLogin } from "react-google-login";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import { FACEBOOK_APP_ID, GOOGLE_CLIENT_ID } from "../app/config";
 import {gapi} from "gapi-script";
-import axios from "axios";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
@@ -34,10 +33,12 @@ function LoginPage() {
   let navigate = useNavigate();
   let location = useLocation();
   const from = location.state?.from?.pathname || "/";
+
   const methods = useForm({
     resolver: yupResolver(loginSchema),
     defaultValues,
   });
+
   const {
     handleSubmit,
     reset,
@@ -60,15 +61,7 @@ function LoginPage() {
    
   };
 
-
-//   FB.login(function(response) {
-//   if (response.status === 'connected') {
-//     // Logged into your webpage and Facebook.
-//   } else {
-//     // The person is not logged into your webpage or we are unable to tell. 
-//   }
-// });
-
+// GỌI API GOOGLE
 
 useEffect(() => {
         const initClient = () => {
@@ -80,6 +73,7 @@ useEffect(() => {
         gapi.load('client:auth2', initClient);
     });
 
+// LOGIN WITH FACEBOOK
 
   const loginWithFacebook = async (response) => {
     await auth.loginFacebook(response, () => {
@@ -87,6 +81,7 @@ useEffect(() => {
     });
   };
 
+// LOGIN WITH GOOGLE
 
    const loginWithGoogle = async (response) => {
     await auth.loginGoogle(response, () => {
@@ -161,9 +156,7 @@ useEffect(() => {
           mt:3,
           mb:3,
           display: "flex",
-          justifyContent:"center",
-          // color:"primary.contrastText",
-         
+          justifyContent:"center",         
         }}
         >
           You can login with 
@@ -210,7 +203,6 @@ useEffect(() => {
                   py: 1.2,
                 }}
                 onClick={renderProps.onClick}
-                // disabled={renderProps.disabled}
               >
                 <FaGoogle />
               </LoadingButton>
@@ -218,18 +210,11 @@ useEffect(() => {
             cookiePolicy={"single_host_origin"}
           /> 
         </Stack>
-
       </FormProvider>
       </CardContent>
-
     </Card>
-
-    
     </Container>
-
-
   );
-
 }
 
 export default LoginPage;
