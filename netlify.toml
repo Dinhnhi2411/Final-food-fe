@@ -1,11 +1,11 @@
 [[redirects]]
   from="/api/*"
-  to="https://final-food-be-production.up.railway.app/api/:splat"
+  to="https://final-food-be-production.up.railway.app/:splat"
   status=200
   force=true # COMMENT: ensure that we always redirect
   headers={X-From = "Netlify"}
 
 [[redirects]]
   from = "/*"
-  to = "/"
+  to = "/index.html"
   status = 200

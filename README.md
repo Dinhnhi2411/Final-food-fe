@@ -315,6 +315,25 @@ FoodStore will be a place that fully meets, diverse in products, quality and rea
 - @description Delete a oder
 - @access Login required
 
+## SET UP
+
+1. Install project dependencies
+
+> npm install
+
+2. Environment variable config (JSK, MURI) In **.env** in **.gitignore**
+
+> REACT_APP_CLOUDINARY_CLOUD_NAME=somekey
+> REACT_APP_CLOUDINARY_UPLOAD_PRESET=somekey
+> PORT = 5000
+
+In **.gitignore**
+
+> node_modules
+> .env
+
+Run **npm run start:dev** or **yarn start:dev** to start app
+
 ## Rlational Diagram
 
 ![](https://user-images.githubusercontent.com/109861294/218176913-5d16c713-0c1d-4ed0-bba6-fbd09e2c45e1.png)
