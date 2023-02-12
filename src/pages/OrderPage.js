@@ -15,46 +15,48 @@ function OrderPage() {
   const { orders, totalPages, totalOrders, isLoading, error } = useSelector(
     (state) => state?.order
   );
-  
+
   useEffect(() => {
     if (user) {
-        dispatch(getOrder({ page }));
+      dispatch(getOrder({ page }));
     }
   }, [dispatch, page, user]);
 
   return (
     <Container>
-       <Box sx={{ position: "relative", height: 1 }}>
-      {isLoading ? (
-        <LoadingScreen />
-      ) : (
-        <>
-          {error ? (
-            <Alert severity="error">{error}</Alert>
-          ) : (
-            <OrderList orders={orders} />
-          )}
-
-          <Box
-            sx={{
-              mt: { xs: 2, md: 5 },
-              mb: { xs: 2, md: 5 },
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            {totalOrders ? (
-              <PaginationBar
-                page={page}
-                setPage={setPage}
-                totalPage={+totalPages}
-              />
+      <Box sx={{ position: "relative", height: 1 }}>
+        {isLoading ? (
+          <LoadingScreen />
+        ) : (
+          <>
+            {error ? (
+              <Alert severity="error">{error}</Alert>
             ) : (
-              <Typography variant="h6">No Products Yet</Typography>
+              <OrderList orders={orders} />
             )}
-          </Box>
+     
+
+      <Box
+        sx={{
+          mt: { xs: 2, md: 5 },
+          mb: { xs: 2, md: 5 },
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {totalOrders ? (
+          <PaginationBar
+            page={page}
+            setPage={setPage}
+            totalPage={+totalPages}
+          />
+        ) : (
+          <Typography variant="h6">No Products Yet</Typography>
+        )}
+      </Box>
+
         </>
-      )}
+        )}
       </Box>
     </Container>
   );

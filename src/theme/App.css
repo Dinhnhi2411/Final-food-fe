@@ -1,26 +1,62 @@
-
 .App {
-  /* background-color:var(--background-color); */
   min-height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* text-align: center; */
   font-size: calc(10px + 2vmin);
   color: var(--color);
 }
 
 #light {
-  background-color:beige;
-
+  background-color: #fcf7f7;
   color: black;
- 
 }
 
 #dark {
-  background-color: #040404;
+  background-color: #000;
   color: white;
-  
+}
+
+
+@-webkit-keyframes my {
+  0% {
+    color: #0a22f8;
+  }
+
+  /* 50% { color: #fff;  }  */
+  100% {
+    color: #f31729;
+  }
+}
+
+
+@-o-keyframes my {
+  0% {
+    color: #0a22f8;
+  }
+
+  /* 50% { color: #fff; }  */
+  100% {
+    color: #f31729;
+  }
+}
+
+@keyframes my {
+  0% {
+    color: #0a22f8;
+  }
+
+  /* 50% { color: #fff;  } */
+  100% {
+    color: #f31729;
+  }
+}
+.title_demo,
+.title {
+
+  -webkit-animation: my 1000ms infinite;
+  -moz-animation: my 1000ms infinite;
+  -o-animation: my 1000ms infinite;
+  animation: my 1000ms infinite;
+
 }

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import React from "react";
-import Inventory2Icon from "@mui/icons-material/Inventory2";
+import GradingIcon from "@mui/icons-material/Grading";
 import { fCurrency } from "../../utils/numberFormat";
 import ButtonStatus from "../dashboard/order/ButtonStatus";
 
@@ -18,13 +18,10 @@ function OrderList({ orders }) {
   return (
     <Container>
       <Box>
-        <Typography variant="h4" sx={{ mb: 3 }}>
-          Order Success
-        </Typography>
         <ListItem>
           <ListItemAvatar>
             <Avatar>
-              <Inventory2Icon />
+              <GradingIcon />
             </Avatar>
           </ListItemAvatar>
           <ListItemText
@@ -35,7 +32,12 @@ function OrderList({ orders }) {
       </Box>
 
       <Box>
-        <Typography variant="h4" sx={{ mt: 1 }}>
+        <Typography
+          sx={{
+            m:1,
+            fontSize: { xs: 20, md: 25, lg: 30 },
+          }}
+        >
           Your Information Order
         </Typography>
       </Box>
@@ -48,7 +50,13 @@ function OrderList({ orders }) {
             return (
               <Grid key={item._id} item xs={12} md={4} lg={3}>
                 <Card
-                  sx={{ p: 3, mt: 1, mr: 2, minHeight: 470, color: "#000" }}
+                  sx={{
+                    p: 3,
+                    mt: 1,
+                    mr: 2,
+                    minHeight: 470,
+                    color: "#000",
+                  }}
                 >
                   <Box sx={{ mb: 2 }}>
                     <ButtonStatus status={item?.status} />
@@ -57,8 +65,10 @@ function OrderList({ orders }) {
                   <Typography>Name : {item.name}</Typography>
                   <Typography>Address Ship: {item.addressShip}</Typography>
                   <Typography>Phone: {item.phone}</Typography>
+
                   <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
-                  {item.products.map((product) => (
+
+                  {item?.products.map((product) => (
                     <Box key={product._id}>
                       <Typography>
                         Product: {product.product.productName}
@@ -75,7 +85,7 @@ function OrderList({ orders }) {
                   <Typography>
                     Price Ship: {fCurrency(item.priceShip)}
                   </Typography>
-                  <Typography sx={{ color: "red", fontSize: 18 }}>
+                  <Typography sx={{ color: "red", fontSize: 18, fontWeight:600 }}>
                     Total Price: {fCurrency(item.total)}
                   </Typography>
                 </Card>

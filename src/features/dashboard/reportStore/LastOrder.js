@@ -45,7 +45,7 @@ export default function LastOrders(props) {
                   </TableCell>
                 {/* </Tooltip> */}
               </TableCell>
-              <TableCell>Amount</TableCell>
+              <TableCell>Total</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>

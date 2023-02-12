@@ -35,7 +35,7 @@ import ProductSort from "../../product/ProductSort";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import ProductEdit from "./ProductEdit";
-import { Pagination, Stack } from "@mui/material";
+import { Button, Pagination, Stack } from "@mui/material";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -200,35 +200,43 @@ const EnhancedTableToolbar = (props) => {
       )}
     
         <Tooltip title="Add Product">
-          <IconButton
+          <Button
+            sx={{m:1}}
+            size="small"
+            variant="outlined"
             component={NavLink}
             to={`/dashboard/products/add`}
             onClick={() => setSelected([])}
           >
-            <AddCircleIcon />
-          </IconButton>
+            ADD 
+          </Button>
         </Tooltip>
         <Tooltip title="Clear filter">
-          <IconButton
+          <Button
+            size="small"
+            variant="outlined"
             onClick={() => {
               setPage(0);
               dispatch(handleClearFilters());
             }}
           >
-            <ClearAllIcon />
-          </IconButton>
+            CLEAR
+          </Button>
         </Tooltip>
     </Toolbar>
   );
 };
 
 export default function ProductTable() {
-  const { products, totalProductDashboard, filters, totalPages, error, isLoading } =
-  useSelector((state) => state.product);
+  const { products, totalProductDashboard, filters } =
+  useSelector((state) => state?.product);
+
   const dispatch = useDispatch();
+  const { user } = useAuth();
+
   const [open, setOpen] = useState(false);
   const [productCurrent, setProductCurrent] = useState([]);
-  const { user } = useAuth();
+ 
   const [order, setOrder] = useState("asc");
   const [orderBy, setOrderBy] = useState("price");
   const [selected, setSelected] = useState([]);
@@ -238,7 +246,7 @@ export default function ProductTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
 
-  const handleChange = (even, value) => {
+  const handleChange = (event, value) => {
         setPage(value);
     };
 
@@ -322,7 +330,7 @@ export default function ProductTable() {
                         <Box
                           component="img"
                           sx={{
-                            width: 100,
+                            width: {xs:50, md:80, lg:100},
                             height: "100%",
                             ml: 1,
                             mt: 1,
@@ -432,6 +440,9 @@ export default function ProductTable() {
         >
           {totalProductDashboard ? (
             <Pagination
+            variant="outlined" 
+            color="primary"
+            size="small"
             count={Math.ceil(totalProductDashboard/10)}
             page={page}
             onChange={handleChange}

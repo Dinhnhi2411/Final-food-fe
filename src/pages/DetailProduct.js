@@ -4,6 +4,7 @@ import {
   Breadcrumbs,
   Button,
   Card,
+  Chip,
   Divider,
   Grid,
   Rating,
@@ -14,27 +15,27 @@ import { Container } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-// import { getSingleProducts } from "../features/product/productSlice";
 import useAuth from "../hooks/useAuth";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import LoadingScreen from "../components/loadingScreen/LoadingScreen";
 import { fCurrency, fNumber } from "../utils/numberFormat";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import apiService from "../app/apiService";
 import { addCart } from "../features/cart/cartSlice";
 import "./stylePage.css";
 import ProductTabs from "../features/product/ProductTabs";
-import { getProductList, getProducts } from "../features/product/productSlice";
+import { getProducts } from "../features/product/productSlice";
 import Carousel from "../components/carousel/Carousel";
+import FilterVintageIcon from '@mui/icons-material/FilterVintage';
+
 
 function DetailProduct() {
   const [open, setOpen] = useState(false);
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [img, setImg] = useState("");
-  const [border, setBorder] = useState();
+  const [img, setImg] = useState(0);
+  const [border, setBorder] = useState(0);
   const [page, setPage] = useState(1)
   const dispatch = useDispatch();
   const params = useParams();
@@ -42,6 +43,9 @@ function DetailProduct() {
   const navigate = useNavigate();
   let { user } = useAuth();
   const {products} = useSelector((state)=> state?.product)
+
+  //  get product
+
   useEffect(() => {
     const getSingleProducts = async () => {
       setLoading(true);
@@ -124,7 +128,7 @@ function DetailProduct() {
               <Alert severity="error">{error}</Alert>
             ) : (
               <>
-                { product && (
+                 { product && (
                   <Box key={product?._id} sx={{ p: 2 }} className="detail-page">
                     <Grid key={product?._id} container>
                       <Grid item xs={12} md={6} key={product?._id}>
@@ -132,25 +136,26 @@ function DetailProduct() {
                           <Box
                             sx={{
                               width: {
-                                xs: "100%wh",
-                                md: "100%wh",
-                                lg: "100%wh",
+                                xs: 300,                
+                                md: 400,
+                                lg: 500,
                               },
-                              height: { xs: "100%", md: "100%", lg: "100%" },
+                              height: { xs: 200, md: 300, lg: 350 },
                               overflow: "hidden",
                               display: "flex",
                             }}
                           >
                             <Card
                               component="img"
-                              src={!img ? product?.image[0] : img}
+                              src={!img ? product?.image[0] : (img)
+                              }
                               alt="product"
                             />
                           </Box>
 
-                          {product?.image.map((img, index) =>
+                          {product?.image?.map((img, index) =>
                             index === border ? (
-                              <Box
+                              <Card
                                 key={index}
                                 onClick={() => {
                                   handleClickImage(img, index);
@@ -162,13 +167,13 @@ function DetailProduct() {
                                   ml: 1,
                                   mt: 1,
                                   borderRadius: 1,
-                                  border: "1px solid black",
+                                  
                                 }}
                                 src={img}
                                 alt="product"
                               />
                             ) : (
-                              <Box
+                              <Card
                                 key={index}
                                 onClick={() => {
                                 
@@ -191,22 +196,24 @@ function DetailProduct() {
                       </Grid>
 
                       <Grid item xs={12} md={6}>
-                        <Box
-                          variant="outlined"
-                          sx={{
-                            p: 1,
-                            m: 1,
-                            display: "block",
-                            textTransform: "uppercase",
-                            fontFamily: "Comic Sans MS",
-                            color: "#000",
-                            fontWeight: "600",
-                            backgroundColor: "#DEF22C",
-                            width: "fit-content",
-                          }}
-                        >
-                          {product.status}
-                        </Box>
+                         <Chip
+                      avatar={< FilterVintageIcon/>}
+                      label={product.status}
+                      sx={{
+                        mt: 2,
+                        mb: 1,
+                        background:
+                          product.status === "Discount"
+                            ? "linear-gradient(to right, #f12711, #f5af19)"
+                            : "linear-gradient(to left, #f5af19, #FF8095)",
+                        textTransform: "uppercase",
+                        "& .MuiChip-avatar": {
+                          color: "white",
+                        },
+                      }}
+                      color="info"
+                      size="medium"
+                    />
 
                         <Typography
                           sx={{

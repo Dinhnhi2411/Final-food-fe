@@ -1,20 +1,22 @@
-import { Paper, Typography } from "@mui/material";
+import { Divider, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import Sale from "../sale/Sale";
 import "./Demo.css";
 
 function Demo() {
   return (
     <>
-      <Box
-        className="title_demo"
-        sx={{
-          fontFamily: "Comic Sans MS",
-          fontSize: { xs: 15, sm: 18, md: 20, lg: 30 },
+    <Divider
+      className="title_demo"
+      sx={{
+          fontSize: { xs: 16, sm: 18, md: 20, lg: 35 },
+          m:5
         }}
-      >
-        WELCOME TO OUR MINI FOOD !
-      </Box>
+        >WELCOME TO OUR MINI FOOD !
+        
+    </Divider>
+    <Sale/>
       <Box className="demo">
         <Box className="demo_card">
           <Paper>
@@ -63,7 +65,7 @@ function Demo() {
                 fontFamily: "Comic Sans MS",
               }}
             >
-              FRESH FOOD
+              FRESH FOOD DA LAT 
             </Typography>
             <Typography
               sx={{

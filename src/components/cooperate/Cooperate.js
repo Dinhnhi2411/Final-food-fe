@@ -5,7 +5,7 @@ import { coop } from "../../data/Data";
 function Cooperate() {
 
   return (
-    <Container sx={{ backgroundColor:"primary.lighter"}}>
+    <Container sx={{}}>
       <Divider />
       <Grid container spacing={1} mt={0}>
         {coop.map((item, index) => (

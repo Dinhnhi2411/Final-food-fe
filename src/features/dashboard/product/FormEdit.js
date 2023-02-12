@@ -19,6 +19,7 @@ import {
 const UpdateProductSchema = yup.object().shape({
   productName: yup.string().required("productName is required"),
   types: yup.string().required("types is required"),
+  status:yup.string().required("status is required"),
   price: yup.number().required("price is required"),
   priceSale: yup.number().required("priceSale is required"),
   unit: yup.string().required("unit is required"),

@@ -325,7 +325,11 @@ FoodStore will be a place that fully meets, diverse in products, quality and rea
 
 ## View app display
 
-![7](https://user-images.githubusercontent.com/109861294/217181122-2c057ebc-40ba-4515-9594-b348222a29f9.png)
+![7(1)](https://user-images.githubusercontent.com/109861294/218271295-2c2c9635-5387-4228-989b-f6dc06c97336.png)
+
+## View Dark Mode and Light Mode
+
+![8(1)](https://user-images.githubusercontent.com/109861294/218271327-d7c10d5e-3bb3-4b73-b8c0-23b92081f54d.png)
 
 ## Vew login display
 

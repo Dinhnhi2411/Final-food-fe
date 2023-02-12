@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -9,9 +9,9 @@ const handleDragStart = (e) => e.preventDefault();
 
 const Carousel = ({ products, page }) => {
   const navigate = useNavigate();
-  const items = products.map((item) => (
+  const items = products?.map((item) => (
     <Box className="carouselItem">
-      <Box
+      <Card
       component="img"
         sx={{
           width: 150,
@@ -21,11 +21,11 @@ const Carousel = ({ products, page }) => {
           border: "3px solid #fff",
         }}
         
-        src={item.image[1] || item.image[0]}
-        alt={item.productName}
+        src={item?.image[1] || item.image[0]}
+        alt={item?.productName}
         onDragStart={handleDragStart}
         className="carouselItem__img"
-        onClick={() => navigate(`/products/public/${item._id}`)}
+        onClick={() => navigate(`/products/public/${item?._id}`)}
       />
       <Typography
       sx={{

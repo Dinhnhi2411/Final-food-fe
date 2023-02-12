@@ -1,16 +1,11 @@
 import { Box, Container, Grid } from "@mui/material";
 import { addDays } from "date-fns";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getReportsDashboard } from "../../features/dashboard/dashboardSlice";
 import LastOrders from "../../features/dashboard/reportStore/LastOrder";
-import { getProductList } from "../../features/product/productSlice";
 import { getArrayLastDays } from "../../utils/formatTime";
-import AppUserChart from "./components/AppUserChart";
 import AppWidgetSummary from "./components/AppWidgetSummary";
-import StorefrontIcon from "@mui/icons-material/Storefront";
-import { getOrder, getOrdersDashboard } from "../../features/order/orderSlice";
-import { getUserList } from "../../features/user/userSlice";
 import LastProduct from "../../features/dashboard/reportStore/LastProduct";
 import Order from "../../features/dashboard/reportStore/Order";
 import editReport from "../../utils/editReport";
@@ -18,11 +13,6 @@ import editReport from "../../utils/editReport";
 export default function DashboardPage() {
   const dispatch = useDispatch();
   const { reports } = useSelector((state) => state?.dashboard);
-  // const totalUser = reports?.totalCustomer;
-  // const totalOrder = reports?.totalOrder;
-  // const totalProduct = reports?.totalProduct;
-  // const revenue = reports?.revenue;
-
   const revenue = editReport(reports?.revenue, "total");
   const totalCustomer = editReport(reports?.totalCustomer, "count");
   const totalOrder = editReport(reports?.totalOrder, "count");
@@ -39,7 +29,7 @@ export default function DashboardPage() {
   }, [dispatch]);
 
   return (
-    <Box>
+  
       <Container maxWidth={false}>
         <Grid key="dashboard" container spacing={3}>
          
@@ -95,6 +85,6 @@ export default function DashboardPage() {
           </Grid>
         </Grid>
       </Container>
-    </Box>
+  
   );
 }

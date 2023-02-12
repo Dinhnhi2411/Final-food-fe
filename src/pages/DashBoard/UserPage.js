@@ -469,6 +469,9 @@ export default function UserPage() {
           >
             {totalUsers ? (
               <PaginationBar
+                variant="outlined" 
+                color="primary"
+                size="small"
                 page={page}
                 setPage={setPage}
                 totalPage={+totalPage}

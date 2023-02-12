@@ -44,7 +44,7 @@ function SliderShow() {
         setIndex((prevIndex) =>
           prevIndex === slider.length - 1 ? 0 : prevIndex + 1
         ),
-      6000
+      4000
     );
     return () => {
       resetTimeout();

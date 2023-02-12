@@ -28,7 +28,7 @@ const AccountStyle = styled("span")(({ theme }) => ({
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
  const { user } = useAuth();
-  const { pathname } = useLocation();
+ const { pathname } = useLocation();
 
   const isDesktop = useResponsive("up", "lg");
 

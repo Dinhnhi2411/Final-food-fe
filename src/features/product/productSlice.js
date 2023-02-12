@@ -78,7 +78,7 @@ const slice = createSlice({
     getProductListSuccess(state, action) {
       state.isLoading = false;
       state.error = null;
-     
+    //  console.log(action.payload)
       state.products = action.payload.products;
       state.totalProductList = action.payload.count
       state.totalProductDashboard = action.payload.count

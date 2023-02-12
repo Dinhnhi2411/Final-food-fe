@@ -6,22 +6,22 @@ const navConfig = [
   {
     title: "dashboard",
     path: "/dashboard",
-    icon: getIcon("eva:pie-chart-2-fill"),
+    icon: getIcon("material-symbols:insert-chart-rounded"),
   },
   {
     title: "user",
     path: "/dashboard/user",
-    icon: getIcon("eva:people-fill"),
+    icon: getIcon("mdi:user-circle"),
   },
   {
     title: "product",
     path: "/dashboard/products",
-    icon: getIcon("eva:shopping-bag-fill"),
+    icon: getIcon("dashicons:products"),
   },
   {
     title: "order",
     path: "/dashboard/order",
-    icon: getIcon("icon-park-solid:transaction-order"),
+    icon: getIcon("material-symbols:order-approve-sharp"),
   },
 ];
 
