@@ -344,7 +344,7 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ## View app display
 
-![7(1)](https://user-images.githubusercontent.com/109861294/218271295-2c2c9635-5387-4228-989b-f6dc06c97336.png)
+![1](https://user-images.githubusercontent.com/109861294/218659391-29a62544-6910-46c0-b729-acb5a8e35495.png)
 
 ## View Dark Mode and Light Mode
 
