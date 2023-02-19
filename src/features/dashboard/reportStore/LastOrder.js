@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import {
@@ -18,9 +18,13 @@ import { fCurrency } from "../../../utils/numberFormat";
 import { Link } from "react-router-dom";
 import { getOrdersDashboard } from "../../order/orderSlice";
 import ButtonStatus from "../order/ButtonStatus";
+import { toast } from "react-toastify";
+import OrderUpdateStatus from "../order/OrderUpdateStatus";
 
 export default function LastOrders(props) {
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const [orders, setOders] = useState([]);
   const {  ordersDashboard } = useSelector((state) => state.order);
 
   useEffect(() => {
@@ -28,9 +32,20 @@ export default function LastOrders(props) {
     dispatch(getOrdersDashboard(filters));
   }, [dispatch]);
 
+    const handleClickOpen = (order) => {
+    if(order.status === "Delivered") {
+      toast("You can't update, order delivered")
+    }else{
+    setOders(order);
+    console.log(order)
+    setOpen(true);
+    }
+  }
 
   return (
     <Card>
+     <OrderUpdateStatus orders={orders} setOpen={setOpen} open={open} />
+
       <CardHeader title="Latest Orders" />
       <PerfectScrollbar>
         <Table sx={{ minWidth: 800}}>
@@ -67,7 +82,12 @@ export default function LastOrders(props) {
                 </TableCell>
                 <TableCell>
 
-                  <ButtonStatus status={order.status}/>
+                  <ButtonStatus 
+                  status={order.status}
+                  onClick={()=> {
+                    handleClickOpen(order)
+                  }}
+                  />
                 
                 </TableCell>
               </TableRow>

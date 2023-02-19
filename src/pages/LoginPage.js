@@ -30,9 +30,12 @@ function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const auth = useAuth();
+   const {user} = useAuth()
+
   let navigate = useNavigate();
   let location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const fromHome = location.state?.from?.pathname || "/" 
+  const fromDash = location.state?.from?.pathname || "/dashboard" 
 
   const methods = useForm({
     resolver: yupResolver(loginSchema),
@@ -51,9 +54,24 @@ function LoginPage() {
     let { email, password } = data;
   
     try {
-      await auth.login({ email, password }, () => {
-        navigate(from, { replace: true });
+      await auth?.login({ email, password }, () => {
+        // if login user is customer 
+      
+       
+        if(user?.role === "customer") {
+           navigate(fromHome, { replace: true });
+           }
+   
+        if(user?.role === "seller") {
+          // if login user is seller
+           navigate(fromDash, { replace: true });
+        }
+
+
+     
       });
+
+
     } catch (error) {
       reset();
       setError("responeError", error);
@@ -77,7 +95,7 @@ useEffect(() => {
 
   const loginWithFacebook = async (response) => {
     await auth.loginFacebook(response, () => {
-      navigate(from, { replace: true });
+      navigate(fromHome, { replace: true });
     });
   };
 
@@ -85,7 +103,7 @@ useEffect(() => {
 
    const loginWithGoogle = async (response) => {
     await auth.loginGoogle(response, () => {
-      navigate(from, { replace: true });
+      navigate(fromHome, { replace: true });
     });
    
   };

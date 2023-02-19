@@ -3,13 +3,11 @@ import {
   Card,
   Divider,
   Grid,
-  IconButton,
   Typography,
 } from "@mui/material";
 import React from "react";
 import { fCurrency } from "../../../utils/numberFormat";
 import ButtonStatus from "./ButtonStatus";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 function OrderListDas({ ordersDashboard, handleClickOpen }) {
   
@@ -21,7 +19,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
         });
         return (
           
-          <Grid key={order?._id} item xs={12} md={4} lg={3}>
+          <Grid key={order?._id} item xs={6} sm={6} md={4} lg={3}>
             <Card key={order?._id} sx={{ p:2, m:1, minHeight: 500 }}>
               <Box
                 
@@ -32,15 +30,13 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                   
                 }}
               >
-                <ButtonStatus status={order?.status} />
-                <IconButton
-                  onClick={() => {
+                <ButtonStatus 
+                status={order?.status} 
+                onClick={() => {
                     handleClickOpen(order);
                   }}
-                  sx={{ height: 30, width: 30 }}
-                >
-                  <MoreHorizIcon />
-                </IconButton>
+                />
+          
               </Box>
               <Typography
                 sx={{

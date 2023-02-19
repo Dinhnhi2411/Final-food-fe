@@ -34,7 +34,7 @@ function ProductTabs({ product }) {
         >
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab
-              label="Discription"
+              label="Description"
               value="1"
               sx={{
                 fontSize: { xs: 14, md: 18, lg: 19 },

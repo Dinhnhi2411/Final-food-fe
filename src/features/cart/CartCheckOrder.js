@@ -29,6 +29,7 @@ const defaultValues = {
 
 function CartCheckOrder({ cartCount }) {
   const { user } = useAuth();
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -44,7 +45,7 @@ function CartCheckOrder({ cartCount }) {
   } = methods;
 
   // Tính toán
-  
+
   let products = [];
   let priceShip = 2;
   let totalPrice = 0;
@@ -93,7 +94,11 @@ function CartCheckOrder({ cartCount }) {
   };
 
   return (
-    <Container spacing={3} sx={{ width: 1, p: 2, mb:2 }} className="cart-container">
+    <Container
+      spacing={3}
+      sx={{ width: 1, p: 2, mb: 2 }}
+      className="cart-container"
+    >
       <FormProvider
         methods={methods}
         onSubmit={handleSubmit(handleConfirmtion)}
@@ -101,28 +106,16 @@ function CartCheckOrder({ cartCount }) {
         <Typography variant="h4" textAlign="center">
           Order Information
         </Typography>
-   
-       <FTextField 
-        variant="standard" 
-        name="name"
-        label="Name"
-        >
-        </FTextField>
-   
+
+        <FTextField variant="standard" name="name" label="Name"  defaultValue="Hello World"></FTextField>
+
         <FTextField
           variant="standard"
           name="addressShip"
           label="AddressShip"
-        >
-        </FTextField>
-    
-        <FTextField 
-        variant="standard" 
-        name="phone"
-        label="Phone"
-        >
-        </FTextField>
-     
+        ></FTextField>
+
+        <FTextField variant="standard" name="phone" label="Phone"></FTextField>
 
         {cartCount?.map((item, index) => {
           if (item.amount === 0) {
@@ -178,22 +171,47 @@ function CartCheckOrder({ cartCount }) {
             </Box>
           );
         })}
+
         <Typography
           sx={{
             fontSize: { xs: 14, md: 18, lg: 20 },
+            display: "flex",
+            justifyContent: "space-between",
           }}
         >
-          Price Ship: {sum > 0 ? fCurrency(priceShip) : (priceShip = 0)}
+          <Typography
+            sx={{
+              fontSize: { xs: 14, md: 18, lg: 20 },
+            }}
+          >
+            Price Ship:
+          </Typography>
+          <Typography sx={{ fontSize: { xs: 14, md: 18, lg: 20 } }}>
+            {sum > 0 ? fCurrency(priceShip) : (priceShip = 0)}
+          </Typography>
         </Typography>
+
         <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
+
         <Typography
           sx={{
-            fontSize: { xs: 16, md: 20, lg: 25 },
-            fontWeight: 600,
+            fontSize: { xs: 14, md: 18, lg: 20 },
+            display: "flex",
+            justifyContent: "space-between",
           }}
-          color="red"
         >
-          Total Price : {fCurrency((totalPrice = totalPrice + priceShip))}
+          <Typography
+            sx={{
+              fontSize: { xs: 16, md: 20, lg: 25 },
+              fontWeight: 600,
+            }}
+            color="red"
+          >
+            Total Price :
+          </Typography>
+          <Typography sx={{ fontSize: { xs: 14, md: 18, lg: 20 } }}>
+            {fCurrency((totalPrice = totalPrice + priceShip))}
+          </Typography>
         </Typography>
         <Box
           sx={{

@@ -71,10 +71,9 @@ function AppBarMenu() {
   };
 
   useEffect(() => {
-    if(user) {
-    dispatch(getCart(page));
+    if (user) {
+      dispatch(getCart(page));
     }
-
   }, [dispatch, page, user]);
 
   const handleCart = () => {
@@ -88,7 +87,6 @@ function AppBarMenu() {
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
-    
       anchorEl={anchorEl}
       anchorOrigin={{
         vertical: "bottom",
@@ -113,18 +111,18 @@ function AppBarMenu() {
       </Box>
 
       <Divider sx={{ borderStyle: "dashed" }} />
-
+      
       <MenuItem
         onClick={handleMenuClose}
         to="/order"
         component={RouterLink}
-        sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000"}}
+        sx={{ mx: 1, fontFamily: "Comic Sans MS", color: "#000" }}
       >
         My Oder
       </MenuItem>
       {!user ? (
         <MenuItem
-          sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000" }}
+          sx={{ mx: 1, fontFamily: "Comic Sans MS", color: "#000" }}
           onClick={handleClickOpen}
         >
           Account Settings
@@ -134,17 +132,17 @@ function AppBarMenu() {
           onClick={handleMenuClose}
           to="/account"
           component={RouterLink}
-          sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000" }}
+          sx={{ mx: 1, fontFamily: "Comic Sans MS", color: "#000" }}
         >
           Account Settings
         </MenuItem>
       )}
-       {user?.role === "seller" && (
+      {user?.role === "seller" && (
         <MenuItem
           onClick={handleMenuClose}
           to="/dashboard"
           component={RouterLink}
-          sx={{ mx: 1, fontFamily: "Comic Sans MS", color:"#000" }}
+          sx={{ mx: 1, fontFamily: "Comic Sans MS", color: "#000" }}
         >
           Dashboard
         </MenuItem>
@@ -155,19 +153,18 @@ function AppBarMenu() {
       {!user ? (
         <MenuItem
           onClick={handleLogin}
-          sx={{ m: 1, fontFamily: "Comic Sans MS", color:"#000" }}
+          sx={{ m: 1, fontFamily: "Comic Sans MS", color: "#000" }}
         >
           Login
         </MenuItem>
       ) : (
         <MenuItem
           onClick={handleLogout}
-          sx={{ m: 1, fontFamily: "Comic Sans MS", color:"#000" }}
+          sx={{ m: 1, fontFamily: "Comic Sans MS", color: "#000" }}
         >
           Logout
         </MenuItem>
       )}
-
     </Menu>
   );
 
@@ -175,29 +172,8 @@ function AppBarMenu() {
     <Box sx={{ mb: 3 }}>
       <AppBar position="static" color="primary">
         <Toolbar disableGutters>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2, ml: 2 }}
-          >
-            <Logo />
-          </IconButton>
 
-          <Typography
-            variant="h4"
-            noWrap
-            component="a"
-            sx={{
-              display: { xs: "none", md: "flex", sm: "block" },
-              fontWeight: 800,
-              fontFamily: "Comic Sans MS",
-            }}
-          >
-            Mini Food
-          </Typography>
-          <Box
+            <Box
             sx={{
               flexGrow: 1,
               display: { xs: "flex", md: "none" },
@@ -210,60 +186,89 @@ function AppBarMenu() {
               aria-haspopup="true"
               size="large"
               color="inherit"
+              sx={{ml:2}}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
+          </Box>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ 
+              mr: 2,
+               ml: 2,
+               display:{xs:"none", md: "flex", sm: "none"}
+              
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
+          >
+            <Logo />
+          </IconButton>
+
+          <Typography
+            variant="h4"
+            noWrap
+            component="a"
+            sx={{
+              display: { xs: "none", md: "flex", sm: "flex" },
+              mr:{sm:"25%", md:0},
+              fontWeight: 800,
+              fontFamily: "Comic Sans MS",
+            }}
+          >
+            Mini Food
+          </Typography>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+          >
+            <MenuItem
+              onClick={() => {
+                navigate("/");
+                handleCloseNavMenu();
               }}
             >
-              <MenuItem
-                onClick={() => {
-                  navigate("/");
-                  handleCloseNavMenu();
-                }}
-              >
-                <Typography fontFamily="Comic Sans MS" textAlign="center">
-                  Home Page
-                </Typography>
-              </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  navigate("/store");
-                  handleCloseNavMenu();
-                }}
-              >
-                <Typography textAlign="center" fontFamily="Comic Sans MS">
-                  Store
-                </Typography>
-              </MenuItem>
+              <Typography fontFamily="Comic Sans MS" textAlign="center">
+                Home Page
+              </Typography>
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                navigate("/store");
+                handleCloseNavMenu();
+              }}
+            >
+              <Typography textAlign="center" fontFamily="Comic Sans MS">
+                Store
+              </Typography>
+            </MenuItem>
 
-              <MenuItem
-                onClick={() => {
-                  navigate("/introduce");
-                  handleCloseNavMenu();
-                }}
-              >
-                <Typography textAlign="center" fontFamily="Comic Sans MS">
-                  Introduce
-                </Typography>
-              </MenuItem>
-            </Menu>
-          </Box>
+            <MenuItem
+              onClick={() => {
+                navigate("/introduce");
+                handleCloseNavMenu();
+              }}
+            >
+              <Typography textAlign="center" fontFamily="Comic Sans MS">
+                Introduce
+              </Typography>
+            </MenuItem>
+          </Menu>
 
           <Box
             sx={{
@@ -317,14 +322,13 @@ function AppBarMenu() {
             </Button>
           </Box>
           <Toolbar>
-           
-              <Avatar
-                onClick={handleProfileMenuOpen}
-                src={user?.avatarUrl}
-                alt={user?.name}
-                sx={{ width: 32, height: 32 }}
-              />
-            
+            <Avatar
+              onClick={handleProfileMenuOpen}
+              src={user?.avatarUrl}
+              alt={user?.name}
+              sx={{ width: 32, height: 32 }}
+            />
+
             {renderMenu}
           </Toolbar>
           <Box>
@@ -334,17 +338,18 @@ function AppBarMenu() {
                 to="/cart"
                 aria-label="Show cart"
                 color="inherit"
+                sx={{mr:2}}
               >
                 <Badge color="primary" badgeContent={carts.totalItem}>
-                  <LocalMallIcon />
+                   <ShoppingBagIcon />
                 </Badge>
               </IconButton>
             ) : (
               <IconButton
                 onClick={handleCart}
-                // to="/cart"
                 aria-label="Show cart"
                 color="inherit"
+                sx={{mr:2}}
               >
                 <Badge color="secondary">
                   <ShoppingBagIcon />

@@ -1,4 +1,7 @@
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Avatar,
   Card,
   Divider,
@@ -13,6 +16,8 @@ import React from "react";
 import GradingIcon from "@mui/icons-material/Grading";
 import { fCurrency } from "../../utils/numberFormat";
 import ButtonStatus from "../dashboard/order/ButtonStatus";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { fDate } from "../../utils/formatTime";
 
 function OrderList({ orders }) {
   return (
@@ -34,7 +39,7 @@ function OrderList({ orders }) {
       <Box>
         <Typography
           sx={{
-            m:1,
+            m: 1,
             fontSize: { xs: 20, md: 25, lg: 30 },
           }}
         >
@@ -44,51 +49,56 @@ function OrderList({ orders }) {
       <Container>
         <Grid container spacing={2} mt={1} mb={2}>
           {orders?.map((item) => {
-            item.products.map((product) => {
+            item?.products?.map((product) => {
               return product;
             });
             return (
-              <Grid key={item._id} item xs={12} md={4} lg={3}>
-                <Card
-                  sx={{
-                    p: 3,
-                    mt: 1,
-                    mr: 2,
-                    minHeight: 470,
-                    color: "#000",
-                  }}
-                >
-                  <Box sx={{ mb: 2 }}>
-                    <ButtonStatus status={item?.status} />
-                  </Box>
+              <Grid key={item._id} item xs={6} sm={6} md={4} lg={3}>
 
-                  <Typography>Name : {item.name}</Typography>
-                  <Typography>Address Ship: {item.addressShip}</Typography>
-                  <Typography>Phone: {item.phone}</Typography>
-
-                  <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
-
-                  {item?.products.map((product) => (
-                    <Box key={product._id}>
-                      <Typography>
-                        Product: {product.product.productName}
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Box sx={{ 
+                      mb: 2,
+                       color: "#000",
+                          }}>
+                      <ButtonStatus status={item?.status} />
+                      <Typography sx={{ fontStyle: "italic", mt:1, mb:1}}>
+                        {item?.createdAt && fDate(item?.createdAt, "dd/MM/yyyy")}
                       </Typography>
-                      <Typography>
-                        Price: {fCurrency(product.product.price)}
-                      </Typography>
-                      <Typography>Amount: {product.amount}</Typography>
-                      <Typography>Total: {fCurrency(product.sum)}</Typography>
-                      <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
+                      <Typography>Detail Information</Typography>
                     </Box>
-                  ))}
+                  </AccordionSummary>
 
-                  <Typography>
-                    Price Ship: {fCurrency(item.priceShip)}
-                  </Typography>
-                  <Typography sx={{ color: "red", fontSize: 18, fontWeight:600 }}>
-                    Total Price: {fCurrency(item.total)}
-                  </Typography>
-                </Card>
+                  <AccordionDetails>
+                    {item?.products?.map((product) => (
+                      <Box key={product._id}>
+                       <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
+                        <Typography sx={{color: "#000"}} >
+                          Product: {product?.product?.productName}
+                        </Typography>
+                        <Typography sx={{color: "#000"}} >
+                          Price: {fCurrency(product?.product?.price)}
+                        </Typography>
+                        <Typography sx={{color: "#000"}} >Amount: {product?.amount}</Typography>
+                        <Typography sx={{color: "#000"}} >Total: {fCurrency(product?.sum)}</Typography>
+                        <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
+                      </Box>
+                    ))}
+
+                    <Typography>
+                      Price Ship: {fCurrency(item.priceShip)}
+                    </Typography>
+                    <Typography
+                      sx={{ color: "red", fontSize: 18, fontWeight: 600 }}
+                    >
+                      Total Price: {fCurrency(item?.total)}
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
               </Grid>
             );
           })}

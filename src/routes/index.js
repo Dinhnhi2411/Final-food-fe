@@ -1,4 +1,3 @@
-import { AccountTree } from "@mui/icons-material";
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AuthProvider } from "../contexts/AuthContext";
@@ -11,7 +10,6 @@ import DashboardPage from "../pages/DashBoard/DashboardPage";
 import EditOrderPage from "../pages/DashBoard/EditOrderPage";
 import EditProductPage from "../pages/DashBoard/EditProductPage";
 import ProductPage from "../pages/DashBoard/ProductPage";
-import UserPage from "../pages/DashBoard/UserPage";
 import DetailProduct from "../pages/DetailProduct";
 import HomePage from "../pages/HomePage";
 import IntroducePage from "../pages/IntroducePage";
@@ -35,10 +33,10 @@ function Router() {
     }>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/store" element={<StorePage />} />
-          <Route path="/introduce" element={<IntroducePage />} />
+          <Route path="store" element={<StorePage />} />
+          <Route path="introduce" element={<IntroducePage />} />
           <Route
-            path="/account"
+            path="account"
             element={
               <AuthRequire>
                 <AccountPage />
@@ -46,10 +44,10 @@ function Router() {
             }
           />
 
-          <Route path="/products/public/:id" element={<DetailProduct />} />
-          <Route path="/account" element={<AccountPage />} />
+          <Route path="products/public/:id" element={<DetailProduct />} />
+          <Route path="account" element={<AccountPage />} />
           <Route
-            path="/order"
+            path="order"
             element={
               <AuthRequire>
                 <OrderPage />
@@ -58,7 +56,7 @@ function Router() {
           />
 
           <Route
-            path="/cart"
+            path="cart"
             element={
               <AuthRequire>
                 <CartPage />
@@ -69,7 +67,7 @@ function Router() {
 
         <Route element={<BlankLayout />}>
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="register" element={<RegisterPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
 
@@ -87,7 +85,6 @@ function Router() {
           <Route path="products/add" element={<EditProductPage />} />
           <Route path="products/clone/:id" element={<EditProductPage />} />
           <Route path="order" element={<EditOrderPage />} />
-          <Route path="user" element={<UserPage />} />
         </Route>
       </Routes>
     </>

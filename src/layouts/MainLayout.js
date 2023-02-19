@@ -25,7 +25,7 @@ function MainLayout() {
         <AlertMsg />
         
         <Box sx={{ m: 2 }} className="switch">
-          <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+          <label> {theme === "light" ? "Dark Mode" : "Light Mode"}</label>
           <Switch
             type="checkbox"
             onChange={toggleTheme}

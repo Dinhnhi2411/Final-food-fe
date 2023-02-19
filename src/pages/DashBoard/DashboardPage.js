@@ -1,4 +1,4 @@
-import { Box, Container, Grid } from "@mui/material";
+import { Alert, Box, Container, Grid } from "@mui/material";
 import { addDays } from "date-fns";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +9,11 @@ import AppWidgetSummary from "./components/AppWidgetSummary";
 import LastProduct from "../../features/dashboard/reportStore/LastProduct";
 import Order from "../../features/dashboard/reportStore/Order";
 import editReport from "../../utils/editReport";
+import useAuth from "../../hooks/useAuth";
 
 export default function DashboardPage() {
   const dispatch = useDispatch();
+  const {user} = useAuth()
   const { reports } = useSelector((state) => state?.dashboard);
   const revenue = editReport(reports?.revenue, "total");
   const totalCustomer = editReport(reports?.totalCustomer, "count");
@@ -29,8 +31,9 @@ export default function DashboardPage() {
   }, [dispatch]);
 
   return (
-  
-      <Container maxWidth={false}>
+    <>
+  {user?.role === "seller" ? (
+<Container maxWidth={false}>
         <Grid key="dashboard" container spacing={3}>
          
             <Grid item lg={3} sm={6} xl={3} xs={12}>
@@ -86,5 +89,11 @@ export default function DashboardPage() {
         </Grid>
       </Container>
   
+  ):(
+<Alert severity="error">
+You are not seller
+</Alert>
+  )}
+     </> 
   );
 }

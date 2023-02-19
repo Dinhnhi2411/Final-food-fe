@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
 import React from "react";
+import { toast } from "react-toastify";
 
-function ButtonStatus({ status }) {
+function ButtonStatus({ status, onClick }) {
 
   const btnDelivered = (
     <Button
@@ -9,6 +10,8 @@ function ButtonStatus({ status }) {
       size="small"
       variant="contained"
       color="success"
+    
+      onClick={onClick}
     >
       Delivered
     </Button>
@@ -20,6 +23,7 @@ function ButtonStatus({ status }) {
       size="small"
       variant="contained"
       color="secondary"
+      onClick={onClick}
     >
       Order is shipping
     </Button>
@@ -30,6 +34,7 @@ function ButtonStatus({ status }) {
       size="small"
       variant="contained"
       color="warning"
+      onClick={onClick}
     >
       Preparing Order
     </Button>
@@ -40,7 +45,8 @@ function ButtonStatus({ status }) {
       sx={{ fontSize: "0.6rem", }}
       size="small"
       variant="contained"
-      color="primary"
+      disabled
+     
     >
       Cancel
     </Button>

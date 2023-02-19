@@ -31,11 +31,12 @@ import {
   handleChangeFilters,
   handleClearFilters,
 } from "../../product/productSlice";
-import ProductSort from "../../product/ProductSort";
+import ProductFilter from "../../product/ProductFilter";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import ProductEdit from "./ProductEdit";
-import { Button, Pagination, Stack } from "@mui/material";
+import { Alert, Button, Pagination, Stack } from "@mui/material";
+import { toast } from "react-toastify";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -67,12 +68,12 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  {
-    id: "image",
-    aligns: "center",
-    disablePadding: true,
-    label: "Image",
-  },
+  // {
+  //   // id: "image",
+  //   aligns: "center",
+  //   disablePadding: false,
+  //   label: "Image",
+  // },
   {
     id: "_id",
     aligns: "center",
@@ -124,12 +125,13 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        {headCells.map((headCell) => (
+        <TableCell  sx={{ fontWeight: 600, textAlign:"center" }}>Image</TableCell>
+        {headCells?.map((headCell) => (
           <TableCell
-            sx={{ fontWeight: 600 }}
+            sx={{ fontWeight: 600}}
             key={headCell.id}
-            align={headCell.aligns}
-            padding={headCell.disablePadding ? "none" : "normal"}
+            // align={headCell.aligns}
+            // padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
@@ -195,7 +197,7 @@ const EnhancedTableToolbar = (props) => {
           spacing={2}
         >
           <SearchInput handleSubmit={handleSubmit} />
-          <ProductSort handleDispatch={handleDispatch} />
+          <ProductFilter handleDispatch={handleDispatch} />
         </Stack>
       )}
     
@@ -277,14 +279,20 @@ export default function ProductTable() {
     setSelected([]);
   };
 
+
   useEffect(() => {
+ 
     const filters = { page: page, limit: rowsPerPage };
     dispatch(getProductList(filters));
-  }, [page, filters, rowsPerPage, dispatch]);
+
+   
+  }, [page, filters, rowsPerPage, dispatch, user]);
 
   return (
+    <>
+    {user?.role === "seller" ? (
     <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", mb: 2 }}>
+      <Paper sx={{ width: "100%", mb:1 }}>
         <EnhancedTableToolbar
           numSelected={selected.length}
           selected={selected}
@@ -432,14 +440,15 @@ export default function ProductTable() {
         </TableContainer>
         <Box
           sx={{
-            mt: { xs: 2, md: 5,  },
-            mb: { xs: 2, md: 5,  },
             display: "flex",
             justifyContent: "center",
           }}
         >
           {totalProductDashboard ? (
             <Pagination
+            sx={{ 
+            mt: { xs: 2, md: 5, lg: 5 },
+            mb: { xs: 2, md: 5, lg:5 },}}
             variant="outlined" 
             color="primary"
             size="small"
@@ -453,5 +462,10 @@ export default function ProductTable() {
         </Box>
       </Paper>
     </Box>
+    ) :(
+      <Alert severity="error">You are not seller</Alert>
+    )}
+   
+    </>
   );
 }

@@ -1,7 +1,4 @@
-import { FcCheckmark } from "react-icons/fc"
-import { AiOutlineClose } from "react-icons/ai"
-
-  
+ 
 
 
 export const banner = [
@@ -76,25 +73,25 @@ export const banner = [
 export const coop = [
   {
     id:42,
-    cover:"./cooperate/coop_1.jpg",
+    cover:"./cooperate/coop_1.png",
     title:"coop 1",
 
   },
     {
     id:43,
-    cover:"./cooperate/coop_2.jpg",
+    cover:"./cooperate/coop_2.png",
     title:"coop 2",
 
   },
     {
     id:44,
-    cover:"./cooperate/coop_3.jpg",
+    cover:"./cooperate/coop_3.png",
     title:"coop 3",
 
   },
     {
     id:45,
-    cover:"./cooperate/coop_4.jpg",
+    cover:"./cooperate/coop_4.png",
     title:"coop 4",
 
   },

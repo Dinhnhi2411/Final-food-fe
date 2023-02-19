@@ -8,11 +8,7 @@ const navConfig = [
     path: "/dashboard",
     icon: getIcon("material-symbols:insert-chart-rounded"),
   },
-  {
-    title: "user",
-    path: "/dashboard/user",
-    icon: getIcon("mdi:user-circle"),
-  },
+ 
   {
     title: "product",
     path: "/dashboard/products",

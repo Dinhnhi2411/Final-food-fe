@@ -51,7 +51,7 @@ function OrderPage() {
             totalPage={+totalPages}
           />
         ) : (
-          <Typography variant="h6">No Products Yet</Typography>
+          <Typography variant="h6">No Order Now</Typography>
         )}
       </Box>
 

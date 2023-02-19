@@ -55,7 +55,7 @@ function RegisterPage() {
    
     try {
       await auth.register({ name, email, password }, () => {
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       });
     } catch (error) {
       reset();

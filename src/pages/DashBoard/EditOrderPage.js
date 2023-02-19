@@ -10,8 +10,8 @@ import useAuth from "../../hooks/useAuth";
 import { TitleStyle } from "../../theme/customizations";
 import "./dash.css";
 import OrderListDas from "../../features/dashboard/order/OrderListDas";
-import LoadingScreen from "../../components/loadingScreen/LoadingScreen";
 import PaginationBar from "../../components/pagination/PaginationBar";
+import { toast } from "react-toastify";
 
 function EditOrderPage() {
   const [open, setOpen] = useState(false);
@@ -22,13 +22,11 @@ function EditOrderPage() {
   const userId = user._id;
   const dispatch = useDispatch();
   const {
-    isLoading,
-    error,
+
     ordersDashboard,
     totalPageDashboard,
     totalOrderDashboard,
   } = useSelector((state) => state.order);
-
 
   useEffect(
     (status) => {
@@ -37,11 +35,16 @@ function EditOrderPage() {
     },
     [dispatch, page, user, userId, filterName]
   );
-  
 
   const handleClickOpen = (order) => {
+    if(order.status === "Delivered") {
+      toast("You can't update, order delivered")
+    }else{
     setOders(order);
+    console.log(order)
     setOpen(true);
+    }
+
   };
   const handleSubmit = (searchQuery) => {
     setFilterName(searchQuery);
@@ -57,64 +60,58 @@ function EditOrderPage() {
           </Typography>
         </TitleStyle>
       </Stack>
-      <OrderUpdateStatus orders={orders} setOpen={setOpen} open={open} />
 
-      {isLoading ? (
-        <LoadingScreen />
-      ) : (
-        <>
-          {error ? (
-            <Alert severity="error">{error}</Alert>
-          ) : (
-            <>
-          
-              <Card>
-                <Box
-                  sx={{
-                    mt: 2,
-                    display: "flex",
-                    justifyContent: "space-around",
-                  }}
-                >
-                  <SearchFilter handleSubmit={handleSubmit} />
-                </Box>
-               
-                    <Container className="container_dash" sx={{ mb: 3 }}>
-                  <OrderListDas
-                   
-                    ordersDashboard={ordersDashboard}
-                    handleClickOpen={handleClickOpen}
-                  />
-                </Container>
-              
-              
-                <Box
-                  sx={{
-                    mt: { xs: 2, md: 5 },
-                    mb: { xs: 2, md: 5 },
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  {totalOrderDashboard ? (
-                    <PaginationBar
-                      page={page}
-                      setPage={setPage}
-                      totalPage={+totalPageDashboard}
-                    />
-                  ) : (
-                    <Typography variant="h6">No order Yet</Typography>
-                  )}
-                </Box>
-              </Card>
-               
-            </>
-          )}
-        </>
-      )}
+      {user?.role === "seller" ? (
+
+      <>
+      <OrderUpdateStatus orders={orders} setOpen={setOpen} open={open} />
+      <>
+        <Card>
+          <Box
+            sx={{
+              mt: 2,
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            <SearchFilter handleSubmit={handleSubmit} />
+          </Box>
+
+          <Container className="container_dash" sx={{ mb: 3 }}>
+            <OrderListDas
+              ordersDashboard={ordersDashboard}
+              handleClickOpen={handleClickOpen}
+            />
+          </Container>
+
+          <Box
+            sx={{
+              mt: { xs: 2, md: 5 },
+              mb: { xs: 2, md: 5 },
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {totalOrderDashboard ? (
+              <PaginationBar
+                page={page}
+                setPage={setPage}
+                totalPage={+totalPageDashboard}
+              />
+            ) : (
+              <Typography variant="h6">No order Yet</Typography>
+            )}
+          </Box>
+        </Card>
+      </>
 
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ mb: 15 }} />
+      </>
+    ):(
+      <Alert severity="error">You are not seller</Alert>
+    )}
+
     </Container>
   );
 }

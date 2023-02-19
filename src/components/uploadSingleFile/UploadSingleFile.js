@@ -50,11 +50,14 @@ function UploadSingleFile({ error = false, file, helperText, sx, ...other }) {
         <input {...getInputProps()} />
 
         <Box
-          direction="column"
           spacing={2}
-          justifyContent="center"
-          alignItems="center"
-          sx={{ height: "100%" }}
+          sx={{ 
+          height: "100%",
+          display:"flex",
+          flexDirection:"column",
+          justifyContent:"center",
+          alignItems:"center",
+          }}
         >
           <AddAPhotoRoundedIcon />
           <Typography

@@ -2,6 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import apiService from "../app/apiService";
 import { isValidToken } from "../utils/jwt";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   isAuthenticated: false,
@@ -31,6 +32,12 @@ const reducer = (state, action) => {
         isAuthenticated: true,
         user: action.payload.user,
       };
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+      };
     case LOGOUT:
       return {
         ...state,
@@ -45,8 +52,6 @@ const reducer = (state, action) => {
         city,
         country,
         phone,
-        logoUrl,
-        storeName,
         company,
       } = action.payload;
       return {
@@ -59,8 +64,6 @@ const reducer = (state, action) => {
           city,
           country,
           phone,
-          logoUrl,
-          storeName,
           company,
         },
       };
@@ -130,10 +133,12 @@ function AuthProvider({ children }) {
   }, [updatedProfile]);
 
   // login 
-
+ 
   const login = async ({ email, password }, callback) => {
     const response = await apiService.post("/auth/login", { email, password });
     const { user, accessToken } = response.data;
+    
+
     setSession(accessToken);
     dispatch({
       type: LOGIN_SUCCESS,

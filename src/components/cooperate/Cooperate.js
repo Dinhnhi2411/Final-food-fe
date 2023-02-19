@@ -1,24 +1,34 @@
 import { CardMedia, Container, Divider, Grid } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
 import { coop } from "../../data/Data";
 
 function Cooperate() {
-
   return (
-    <Container sx={{}}>
+    <Container>
       <Divider />
-      <Grid container spacing={1} mt={0}>
+      <Grid container id="coop">
         {coop.map((item, index) => (
-          <Grid key={item.id} item xs={6} md={4} lg={3}>
-            <CardMedia
+          <Grid  key={item.id} item xs={6} sm={3} md={3} lg={3}>
+
+          <CardMedia
               sx={{
                 height: {
-                  xs: 180,
+                  xs: 150,
+                  sm:180,
+                  md: 200,
+                  lg: 250 
+                },
+                width: {
+                  xs: 150,
+                  sm:180,
                   md: 200,
                   lg: 250,
                 },
                 borderRadius: 10,
-                p: 2,
+                mb:1,
+                m:1
+
               }}
               component="img"
               image={item.cover}

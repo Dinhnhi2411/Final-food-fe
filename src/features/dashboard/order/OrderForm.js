@@ -38,7 +38,7 @@ function OrderForm({ orders, handleClose }) {
     dispatch(updateOrder({ id: id, status: status }));
     setTimeout(() => {
       dispatch(getOrdersDashboard({ page, userId }));
-    }, 500);
+    }, 700);
   };
 
   return (

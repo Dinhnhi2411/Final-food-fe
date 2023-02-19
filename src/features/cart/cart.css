@@ -4,14 +4,15 @@
     margin: 0;
     box-sizing: border-box;
     
+    
 }
 
 /* Cart */
 .cart-container {
     margin: 10px;
     padding: 2rem 4rem;
-    background-image:
-    linear-gradient(to right, #30cfd044, #a5d6a744, #FF809544);
+    /* background-image:
+    linear-gradient(to right, #30cfd044, #a5d6a744, #FF809544); */
     border-radius: 20px;
     box-shadow: 0 6px 6px cadetblue;
 }

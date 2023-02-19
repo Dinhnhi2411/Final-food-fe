@@ -1,12 +1,12 @@
-import { Alert, Typography } from "@mui/material";
+import { Alert, Button, Divider, Drawer, Grid, Typography } from "@mui/material";
 import { Box, Container, Stack } from "@mui/system";
-import React, { useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import LoadingScreen from "../components/loadingScreen/LoadingScreen";
 import ProductList from "../features/product/ProductList";
-import "./stylePage.css";
+import FilterListIcon from "@mui/icons-material/FilterList";
+
 import {
   getProductList,
-  
   handleChangeFilters,
 } from "../features/product/productSlice";
 
@@ -14,9 +14,13 @@ import { useDispatch, useSelector } from "react-redux";
 import PaginationBar from "../components/pagination/PaginationBar";
 import { PER_PAGE } from "../app/config";
 import SearchInput from "../components/searchInput/SearchInput";
-import ProductSort from "../features/product/ProductSort";
+import useResponsive from "../hooks/useResponsive";
+import ProductFilterTypes from "../features/product/ProductFilterTypes";
+import ProductFilterStatus from "../features/product/ProductFilterStatus";
 
 function StorePage() {
+  const upLg = useResponsive("up", "lg");
+
   const dispatch = useDispatch();
   let {
     totalPages,
@@ -32,8 +36,17 @@ function StorePage() {
     dispatch(handleChangeFilters(value));
   };
 
+  const [openFilter, setOpenFilter] = useState(false);
+  const handleOpenFilter = () => {
+    setOpenFilter(true);
+  };
+
+  const handleCloseFilter = () => {
+    setOpenFilter(false);
+  };
+
   useEffect(() => {
-    dispatch(getProductList());
+    dispatch(getProductList(filters));
   }, [filters, dispatch]);
 
   const handleSubmit = (searchQuery) =>
@@ -45,53 +58,101 @@ function StorePage() {
   };
 
   return (
-    <Container sx={{ display: "flex", minHeight: "100vh", mt: 3 }}>
-      <Stack sx={{ flexGrow: 1 }}>
-        <Stack
-          spacing={2}
-          direction={{ xs: "column", sm: "row" }}
-          alignItems={{ sm: "center" }}
-          justifyContent="center"
-          mb={2}
-         
+
+    <Container>
+      <Stack
+        direction="row"
+        flexWrap="wrap-reverse"
+        alignItems="center"
+        justifyContent="flex-end"
+        spacing={2}
+        sx={{ mb: 5 }}
+      >
+        <SearchInput handleSubmit={handleSubmit} />
+        <Button
+          disableRipple
+          color="inherit"
+          startIcon={<FilterListIcon />}
+          onClick={handleOpenFilter}
         >
-          <SearchInput handleSubmit={handleSubmit} />
-          <ProductSort handleDispatch={handleDispatch} />
-        </Stack>
+          Filter
+        </Button>
+      
 
-        <Box sx={{ position: "relative", height: 1 }}>
-          {isLoading ? (
-            <LoadingScreen />
-          ) : (
-            <>
-              {error ? (
-                <Alert severity="error">{error}</Alert>
-              ) : (
-                <ProductList products={products} />
-              )}
-            </>
-          )}
-        </Box>
-
-        <Box
-          sx={{
-            mt: { xs: 2, md: 5 },
-            mb: { xs: 2, md: 5 },
-            display: "flex",
-            justifyContent: "center",
+        <Drawer
+          anchor="left"
+          open={openFilter}
+          onClose={handleCloseFilter}
+          PaperProps={{
+            sx: { width: 280, border: "none", overflow: "hidden" },
           }}
         >
-          {totalProductList ? (
-            <PaginationBar
-              page={currentPage}
-              setPage={handleChangePage}
-              totalPage={+totalPages}
-            />
-          ) : (
-            <Typography variant="h6">No Products Yet</Typography>
-          )}
-        </Box>
+          <ProductFilterTypes
+            onCloseFilter={handleCloseFilter}
+            isOpenFilter={openFilter}
+            handleDispatch={handleDispatch}
+          />
+
+            <ProductFilterStatus
+            onCloseFilter={handleCloseFilter}
+            isOpenFilter={openFilter}
+            handleDispatch={handleDispatch}
+          />
+
+        </Drawer>
       </Stack>
+
+      <Grid container spacing={3}>
+        {upLg && (
+          <Grid item xs={3}>
+            <Box 
+            sx={{
+              display:"flex",
+              flexDirection:"column",
+              
+              textAlign:"center",
+              alignItems:"center",
+              backgroundColor:"grey.200",
+              borderRadius:5,
+              pb:4,
+              mt:2
+            }}
+            >
+            <ProductFilterTypes
+              handleDispatch={handleDispatch}
+              disableScrollBar={true}
+            />
+            
+            <ProductFilterStatus
+              handleDispatch={handleDispatch}
+              disableScrollBar={true}
+            />
+            </Box>
+          </Grid>
+        )}
+        <Grid item xs={12} md={12} lg={9}>
+            <ProductList products={products} />
+
+            <Box
+        sx={{
+          mt: { xs: 2, md: 5 },
+          mb: { xs: 2, md: 5 },
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+              {totalProductList ? (
+                <PaginationBar
+                  page={currentPage}
+                  setPage={handleChangePage}
+                  totalPage={+totalPages}
+                />
+              ) : (
+                <Typography variant="h6">No Products Yet</Typography>
+              )}
+            </Box>
+        </Grid>
+      </Grid>
     </Container>
   );
 }

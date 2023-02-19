@@ -4,6 +4,7 @@ import { Box, Card, Grid, Stack, Typography } from "@mui/material";
 import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { FormProvider, FTextField, FUploadAvatar } from "../../components/form";
 import useAuth from "../../hooks/useAuth";
@@ -16,6 +17,7 @@ const UpdateUserSchema = yup.object().shape({
 
 function AccountGeneral() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { user } = useAuth();
   const isLoading = useSelector((state) => state.user.isLoading);
@@ -57,6 +59,7 @@ function AccountGeneral() {
 
   const onSubmit = (data) => {
     dispatch(updateUserProfile({ userId: user._id, ...data }));
+    
   };
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>

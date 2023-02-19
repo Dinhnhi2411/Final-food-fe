@@ -22,11 +22,11 @@ import { fCurrency, fNumber } from "../utils/numberFormat";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import apiService from "../app/apiService";
 import { addCart } from "../features/cart/cartSlice";
-import "./stylePage.css";
 import ProductTabs from "../features/product/ProductTabs";
 import { getProducts } from "../features/product/productSlice";
 import Carousel from "../components/carousel/Carousel";
 import FilterVintageIcon from '@mui/icons-material/FilterVintage';
+import { toast } from "react-toastify";
 
 
 function DetailProduct() {
@@ -39,7 +39,7 @@ function DetailProduct() {
   const [page, setPage] = useState(1)
   const dispatch = useDispatch();
   const params = useParams();
-  const id = params.id;
+  const id = params?.id;
   const navigate = useNavigate();
   let { user } = useAuth();
   const {products} = useSelector((state)=> state?.product)
@@ -68,6 +68,7 @@ function DetailProduct() {
       navigate("/login");
     }
     dispatch(addCart({ productId: id }));
+    toast("Add cart successfully")
   };
 
   useEffect(()=>{
@@ -85,7 +86,7 @@ function DetailProduct() {
   };
 
   return (
-    <Container sx={{ my: 3 }}>
+    <Container>
       <Breadcrumbs
         aria-label="breadcrumb"
         sx={{
@@ -164,7 +165,7 @@ function DetailProduct() {
                                 sx={{
                                   width: "100%wh",
                                   height: 70,
-                                  ml: 1,
+                                  // ml: 1,
                                   mt: 1,
                                   borderRadius: 1,
                                   
@@ -242,6 +243,7 @@ function DetailProduct() {
                             }}
                           >
                             {product.price && fCurrency(product.price)}
+                        
                           </Box>
                           &nbsp;{fCurrency(product.priceSale)}
                         </Typography>
@@ -263,16 +265,10 @@ function DetailProduct() {
                             fontWeight: 600,
                           }}
                         >
-                          Products available at {product.author.storeName}
+                          Products available at Mini Food
                         </Typography>
 
-                        <Typography
-                          sx={{
-                            font: { xs: 16, md: 23 },
-                          }}
-                        >
-                          {product.description}
-                        </Typography>
+            
                         <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
 
                         <Stack direction="row" spacing={2} sx={{ mt: 5 }}>
@@ -283,9 +279,9 @@ function DetailProduct() {
                               if (!user) {
                                 navigate("/login");
                               } else {
-                               
-                                handleClickOpen();
-                                handleAddToCart();
+                               (user?._id === product?.author?._id)
+                                ? toast("You can't buy your product store")
+                                : handleAddToCart()
                               }
                             }}
                           >

@@ -33,7 +33,7 @@ const initialState = {
   productsDiscount: [],
 
    filters: {
-    sortBy: "",
+    sortBy: ""
   },
 };
 
@@ -55,6 +55,19 @@ const slice = createSlice({
       state.currentPage = action.payload.page;
       state.totalProduct = action.payload.count
       state.totalPages = action.payload.totalPages;
+
+      state.isLoading = false;
+      state.error = null;
+
+      // const { products, count } = action.payload;
+      // console.log(action.payload)
+      // products.forEach((product) => {
+      //   state.productById[product._id] = product;
+      //   if (!state.currentPageProducts.includes(product._id))
+      //     state.currentPageProducts.push(product._id);
+      // });
+
+      // state.totalProduct = count;
     },
     getProductTopSellingSuccess(state, action) {
       state.isLoading = false;
@@ -78,7 +91,7 @@ const slice = createSlice({
     getProductListSuccess(state, action) {
       state.isLoading = false;
       state.error = null;
-    //  console.log(action.payload)
+     console.log(action.payload)
       state.products = action.payload.products;
       state.totalProductList = action.payload.count
       state.totalProductDashboard = action.payload.count
@@ -155,13 +168,13 @@ toast.error(error.message);
 
 // GET ALL PRODUCTS
 
-export const getProducts = ({page=1, limit=PER_PAGE, productName, types }) =>
+export const getProducts = ({page=1, limit=PER_PAGE, name, types, filter}) =>
 async(dispatch, getState) => {
     dispatch(slice.actions.startLoading());
     try{
        
-        const params = { page, productName, types, limit};
-        if(productName) params.productName = productName
+        const params = { page, name, types, limit, filter};
+        if(name) params.name = name
         if(types) params.types = types
 
         const response = await apiService.get(`/products/public`, {params});
@@ -173,12 +186,15 @@ async(dispatch, getState) => {
         dispatch(slice.actions.hasError(error.message));
         toast.error(error.message);
     }
+
 };
+
+
 
 // GET PRODUCT TOP SELLING
 
 export const getProductsTopSelling =
-  ({ page = 1, limit = PER_PAGE, name, types }) =>
+  ({ page = 1, limit = 8, name, types }) =>
     async (dispatch) => {
       dispatch(slice.actions.startLoading());
       try {
@@ -199,7 +215,7 @@ export const getProductsTopSelling =
 // GET PRODUCT NEW 
 
 export const getProductsNew =
-  ({ page = 1, limit = PER_PAGE, name, types }) =>
+  ({ page = 1, limit = 8, name, types }) =>
     async (dispatch) => {
       dispatch(slice.actions.startLoading());
       try {
@@ -220,7 +236,7 @@ export const getProductsNew =
 // GET PRODUCT DISCOUNT 
 
 export const getProductsDiscount =
-  ({ page = 1, limit = PER_PAGE, name, types }) =>
+  ({ page = 1, limit = 8, name, types }) =>
     async (dispatch) => {
       dispatch(slice.actions.startLoading());
       try {
@@ -258,11 +274,11 @@ export const getSingleProducts =
 //  EDIT/UPDATE PRODUCT
 
 export const editProduct =
-  ({ id, productName, types, price, priceSale, unit, image, description, userId, page }) =>
+  ({ id, productName, types, price, priceSale, unit, image, status, description, userId, page }) =>
     async (dispatch) => {
       dispatch(slice.actions.startLoading());
       try {
-        const data = { productName, types, price, priceSale, unit, image, description }
+        const data = { productName, types, price, priceSale, unit, image, status, description }
 
         if (image instanceof File) {
           const imageUrl = await cloudinaryUpload(image);
