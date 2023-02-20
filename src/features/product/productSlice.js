@@ -59,15 +59,6 @@ const slice = createSlice({
       state.isLoading = false;
       state.error = null;
 
-      // const { products, count } = action.payload;
-      // console.log(action.payload)
-      // products.forEach((product) => {
-      //   state.productById[product._id] = product;
-      //   if (!state.currentPageProducts.includes(product._id))
-      //     state.currentPageProducts.push(product._id);
-      // });
-
-      // state.totalProduct = count;
     },
     getProductTopSellingSuccess(state, action) {
       state.isLoading = false;
@@ -91,7 +82,7 @@ const slice = createSlice({
     getProductListSuccess(state, action) {
       state.isLoading = false;
       state.error = null;
-     console.log(action.payload)
+    
       state.products = action.payload.products;
       state.totalProductList = action.payload.count
       state.totalProductDashboard = action.payload.count
@@ -158,7 +149,7 @@ const response = await apiService.post("/products", {
     productName, types, status, price, priceSale, unit, rating, description, image: imageUrl,
 });
 dispatch(slice.actions.createProductSuccess(response.data));
-toast.success("Create Producr Successfully");
+toast.success("Create Product Successfully");
 
 }catch(error) {
 dispatch(slice.actions.hasError(error.message));

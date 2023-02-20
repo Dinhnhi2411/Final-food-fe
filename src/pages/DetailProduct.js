@@ -279,7 +279,7 @@ function DetailProduct() {
                               if (!user) {
                                 navigate("/login");
                               } else {
-                               (user?._id === product?.author?._id)
+                               (user?._id === product?.author._id)
                                 ? toast("You can't buy your product store")
                                 : handleAddToCart()
                               }

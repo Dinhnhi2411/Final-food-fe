@@ -66,8 +66,6 @@ function LoginPage() {
           // if login user is seller
            navigate(fromDash, { replace: true });
         }
-
-
      
       });
 
