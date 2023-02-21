@@ -75,7 +75,7 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ## Relationship Diagram
 
-![relationship diagram drawio (1)](https://user-images.githubusercontent.com/109861294/220315918-6ce9de07-664f-403c-b9b6-f04348bfb643.png)
+![relationship diagram drawio (1) drawio](https://user-images.githubusercontent.com/109861294/220402871-b3ab9816-0018-4abf-aac8-f465720baa46.png)
 
 ## Link Demo
 
