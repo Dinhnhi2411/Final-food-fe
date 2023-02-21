@@ -14,7 +14,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
   return (
     <Grid container spacing={2} mt={1}>
       {ordersDashboard?.map((order) => {
-        order.products.map((product) => {
+        order?.products?.map((product) => {
           return product;
         });
         return (
@@ -73,10 +73,10 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
               </Typography>
 
               <Divider sx={{ borderStyle: "dashed", mb: 2 }} />
-              {order.products.map((product) => (
+              {order?.products?.map((product) => (
                 <>
                   <Typography sx={{ fontSize: 13, mb: 2, fontWeight: 600, color:"#000" }}>
-                    Product: {product?.product.productName}
+                    Product: {product?.product?.productName}
                   </Typography>
 
                   <Typography
@@ -91,7 +91,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                     }}
                   >
                     <span>Price:</span>
-                    <span>{fCurrency(product?.product.price)} </span>
+                    <span>{fCurrency(product?.product?.price)} </span>
                   </Typography>
 
                   <Typography

@@ -22,7 +22,7 @@ import useAuth from "../hooks/useAuth";
 const loginSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  password: Yup.string().required("Password is required"),
+  password: Yup.string().required("Password is required").min(8),
   confirmPassword: Yup.string()
     .required("Please confirm your password")
     .oneOf([Yup.ref("password"), "Password must match"]),
@@ -78,11 +78,13 @@ function RegisterPage() {
                   Sign in!
                 </Link>
               </Alert>
-              <FTextField name="name" label="Full name" />
+              <FTextField name="name" label="Full name"/>
               <FTextField name="email" label="Email address" />
               <FTextField
                 name="password"
                 label="Password"
+                minlength={5}
+                maxlength={12}
                 type={showPassword ? "text" : "password"}
                 InputProps={{
                   endAdornment: (

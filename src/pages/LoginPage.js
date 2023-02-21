@@ -83,7 +83,7 @@ useEffect(() => {
         const initClient = () => {
             gapi.client.init({
                 clientId: GOOGLE_CLIENT_ID,
-                scope: 'email'
+                scope: 'profile email'
             });
         };
         gapi.load('client:auth2', initClient);
@@ -128,6 +128,7 @@ useEffect(() => {
           <FTextField
             name="password"
             label="Password"
+         
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (

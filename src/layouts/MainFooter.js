@@ -5,23 +5,25 @@ import { Box } from "@mui/system";
 function MainFooter() {
   return (
     <>
-    <Box sx={{ minHeight: 250, backgroundColor: "#000" }}>
-    <Divider sx={{ borderStyle: "dashed", mb: 1 }} />
+    <Box sx={{  backgroundColor: "#000" }}>
+    <Divider sx={{ borderStyle: "dashed" }} />
 
       <Box
         sx={{
+          mb:1,
           display: "flex",
           flexDirection: { xs: "column", md: "row", lg: "row" },
-          justifyContent: "space-around",
+          textAlign: {xs:"center", sm:"center", lg:"left"},
+          justifyContent:{ xs:"center", sm:"center", md:"center" ,lg:"space-around"},
         }}
       >
         <Box sx={{ color: "#fff", m: 1 }}>
           <Typography
             sx={{
-              mt: 3,
+              
               backgroundColor: "#000",
               fontSize: { xs: 16, md: 17, lg: 25 },
-              lineHeight: 2,
+              
               fontFamily: "Comic Sans MS",
             }}
           >
@@ -78,6 +80,9 @@ function MainFooter() {
             sx={{
               display: "flex",
               flexDirection: "row",
+              textAlign :"center",
+              alignItems:"center",
+              justifyContent:"center"
             }}
           >
             <img
@@ -104,7 +109,9 @@ function MainFooter() {
         </Box>
       </Box>
 
-      <Box>
+      <Box 
+      sx={{backgroundColor:"#fff"}}
+      >
         <Typography
           variant="body2"
           color="text.secondary"
