@@ -28,10 +28,7 @@ const defaultValues = {
 };
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
-
   const auth = useAuth();
-   const {user} = useAuth()
-
   let navigate = useNavigate();
   let location = useLocation();
   const fromHome = location.state?.from?.pathname || "/" 
@@ -54,25 +51,31 @@ function LoginPage() {
     let { email, password } = data;
   
     try {
-      await auth?.login({ email, password }, () => {
-        // if login user is customer 
-      
-       
-        if(user?.role === "customer") {
-           navigate(fromHome, { replace: true });
-           }
-   
-        if(user?.role === "seller") {
-          // if login user is seller
-           navigate(fromDash, { replace: true });
-        }
      
-      });
+        await 
+        auth?.login({ email, password }, (user) => {
+        // if login user is customer 
+     
+        if(user?.role === "customer") {
+            console.log(user?.role)
+           navigate(fromHome, { replace: true });
+     
+        // if login user is admin
 
+        } else {
+           console.log(user?.role)
+          navigate(fromDash, { replace: true });
+        }
+    
+      });
+        
+      
+      
 
     } catch (error) {
       reset();
       setError("responeError", error);
+      console.log(error)
     }
    
   };
@@ -87,7 +90,7 @@ useEffect(() => {
             });
         };
         gapi.load('client:auth2', initClient);
-    });
+    },[]);
 
 // LOGIN WITH FACEBOOK
 

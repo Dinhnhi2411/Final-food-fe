@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function Poster() {
-                const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div id="poster">
       <div className="box-left">
@@ -29,9 +29,7 @@ function Poster() {
           Chuyên cung cấp các thực phẩm organic cho người dùng, phục vụ người
           dùng một cách hoàn hảo nhất
         </Typography>
-        <button
-        onClick={()=> navigate("/store")}
-        >Mua ngay</button>
+        <button onClick={() => navigate("/store")}>Mua ngay</button>
       </div>
 
       <div className="box-right">

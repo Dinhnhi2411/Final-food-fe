@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { AuthProvider } from "../contexts/AuthContext";
 import BlankLayout from "../layouts/BlankLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import MainLayout from "../layouts/MainLayout";

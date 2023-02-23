@@ -37,8 +37,8 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 - As a user and as is a customer, I can see the user's profile.
 - As a user and as is a customer, I can update my profile.
-- As a user and as of a seller , I can see my profile.
-- As a user and as is a seller, I can update my profile.
+- As a user and as of a admin , I can see my profile.
+- As a user and as is a admin, I can update my profile.
 
 ### Product
 
@@ -46,10 +46,10 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 - As a use and as is a customer, I can search according to the product name
 - As a user and as of a customer, I can see the details of a product.
 - A a user and as of a customer, I can write review for a product.
-- As a user and as of a seller , I can see the list of products I'm selling.
-- As a user and as of a seller , I can add new products.
-- As a user and as of a seller , I can update the information of a product I'm selling
-- As a user and as of a seller , I can delete my product.
+- As a user and as of a admin , I can see the list of products I'm selling.
+- As a user and as of a admin , I can add new products.
+- As a user and as of a admin , I can update the information of a product I'm selling
+- As a user and as of a admin , I can delete my product.
 
 ### Cart
 
@@ -67,11 +67,11 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ### DashBoard
 
-- As a user and as of a seller, I can see detail dashboard as total product, total order, total user, revenue in month.
-- As a user and as of a seller, I can see latest orders, latest products.
-- As a user and as of a seller, I can see all product, edit product,delete product search according product name..
-- As a user and as of a seller, I can see all user, delete user and search according user name.
-- As a user and as of a seller, I can see all order, update status order and filter according status order.
+- As a user and as of a admin, I can see detail dashboard as total product, total order, total user, revenue in month.
+- As a user and as of a admin, I can see latest orders, latest products.
+- As a user and as of a admin, I can see all product, edit product,delete product search according product name..
+- As a user and as of a admin, I can see all user, delete user and search according user name.
+- As a user and as of a admin, I can see all order, update status order and filter according status order.
 
 ## Relationship Diagram
 

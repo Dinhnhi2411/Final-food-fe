@@ -109,7 +109,7 @@ function EditOrderPage() {
       <Box sx={{ mb: 15 }} />
       </>
     ):(
-      <Alert severity="error">You are not seller</Alert>
+      <Alert severity="error">You are not adminb</Alert>
     )}
 
     </Container>

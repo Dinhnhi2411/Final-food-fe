@@ -1,8 +1,6 @@
-import { ProductionQuantityLimitsSharp } from "@mui/icons-material";
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import apiService from "../../app/apiService";
-import { PER_PAGE } from "../../app/config";
 
 const initialState = {
   isLoading: false,

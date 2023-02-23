@@ -2,7 +2,6 @@ import { createContext, useReducer, useEffect } from "react";
 import apiService from "../app/apiService";
 import { isValidToken } from "../utils/jwt";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   isAuthenticated: false,
@@ -144,8 +143,10 @@ function AuthProvider({ children }) {
       type: LOGIN_SUCCESS,
       payload: { user },
     });
+    
+    // lấy user từ response và truyền vào callback
 
-    callback();
+    callback(user);
   };
 
   // Login with facebook

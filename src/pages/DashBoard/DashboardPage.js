@@ -1,4 +1,4 @@
-import { Alert, Box, Container, Grid } from "@mui/material";
+import { Alert, Container, Grid } from "@mui/material";
 import { addDays } from "date-fns";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +13,7 @@ import useAuth from "../../hooks/useAuth";
 
 export default function DashboardPage() {
   const dispatch = useDispatch();
-  const {user} = useAuth()
+  const { user } = useAuth();
   const { reports } = useSelector((state) => state?.dashboard);
   const revenue = editReport(reports?.revenue, "total");
   const totalCustomer = editReport(reports?.totalCustomer, "count");
@@ -32,10 +32,13 @@ export default function DashboardPage() {
 
   return (
     <>
-  {user?.role === "seller" ? (
-<Container maxWidth={false}>
-        <Grid key="dashboard" container spacing={3}>
-         
+      {user?.role === "seller" ? (
+        <Container 
+        maxWidth={false} 
+        sx={{
+          mt:{xs:1, sm:2, md:2, lg:4}
+        }}>
+          <Grid key="dashboard" container spacing={3}>
             <Grid item lg={3} sm={6} xl={3} xs={12}>
               <AppWidgetSummary
                 title="Total Price Sales"
@@ -44,7 +47,6 @@ export default function DashboardPage() {
                 icon={"twemoji:dollar-banknote"}
               />
             </Grid>
-      
 
             <Grid item xl={3} lg={3} sm={6} xs={12}>
               <AppWidgetSummary
@@ -73,27 +75,24 @@ export default function DashboardPage() {
               />
             </Grid>
 
-          <Grid item key={1} xl={12} lg={12} md={12} xs={12}>
-            <Order
-              lastestOrders={reports.lastestOrders}
-              rangeDays={rangeDays}
-            />
-            {/* <AppUserChart/> */}
+            <Grid item key={1} xl={12} lg={12} md={12} xs={12}>
+              <Order
+                lastestOrders={reports.lastestOrders}
+                rangeDays={rangeDays}
+              />
+              {/* <AppUserChart/> */}
+            </Grid>
+            <Grid item key={2} xl={4} lg={4} md={12} xs={12}>
+              <LastProduct />
+            </Grid>
+            <Grid item key={3} xl={8} lg={8} md={12} xs={12}>
+              <LastOrders />
+            </Grid>
           </Grid>
-          <Grid item key={2} xl={4} lg={4} md={12} xs={12}>
-            <LastProduct />
-          </Grid>
-          <Grid item key={3} xl={8} lg={8} md={12} xs={12}>
-            <LastOrders />
-          </Grid>
-        </Grid>
-      </Container>
-  
-  ):(
-<Alert severity="error">
-You are not seller
-</Alert>
-  )}
-     </> 
+        </Container>
+      ) : (
+        <Alert severity="error">You are not admin</Alert>
+      )}
+    </>
   );
 }

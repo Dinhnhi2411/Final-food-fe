@@ -1,6 +1,5 @@
 
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import ClearAllIcon from "@mui/icons-material/ClearAll";
+
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
@@ -36,7 +35,6 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import ProductEdit from "./ProductEdit";
 import { Alert, Button, Pagination, Stack } from "@mui/material";
-import { toast } from "react-toastify";
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -463,7 +461,7 @@ export default function ProductTable() {
       </Paper>
     </Box>
     ) :(
-      <Alert severity="error">You are not seller</Alert>
+      <Alert severity="error">You are not admin</Alert>
     )}
    
     </>

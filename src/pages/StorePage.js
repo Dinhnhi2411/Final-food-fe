@@ -1,7 +1,6 @@
-import { Alert, Button, Divider, Drawer, Grid, Typography } from "@mui/material";
+import {  Button, Drawer, Grid, Typography } from "@mui/material";
 import { Box, Container, Stack } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import LoadingScreen from "../components/loadingScreen/LoadingScreen";
 import ProductList from "../features/product/ProductList";
 import FilterListIcon from "@mui/icons-material/FilterList";
 
@@ -27,9 +26,9 @@ function StorePage() {
     filters,
     currentPage,
     totalProductList,
-    isLoading,
+ 
     products,
-    error,
+    
   } = useSelector((state) => state?.product);
 
   const handleDispatch = (value) => {

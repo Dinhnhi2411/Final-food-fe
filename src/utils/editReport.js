@@ -1,4 +1,3 @@
-import React from "react";
 
 function editReport(array, typeArr) {
   const date = new Date();

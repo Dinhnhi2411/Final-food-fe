@@ -16,7 +16,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCart } from "../../features/cart/cartSlice";
 import { toast } from "react-toastify";
-import LocalMallIcon from "@mui/icons-material/LocalMall";
 
 function AppBarMenu() {
   const { user, logout } = useAuth();
@@ -26,6 +25,7 @@ function AppBarMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
+   // eslint-disable-next-line 
   const [open, setOpen] = React.useState(false);
   const { carts, page } = useSelector((state) => state.cart);
 
@@ -137,7 +137,7 @@ function AppBarMenu() {
           Account Settings
         </MenuItem>
       )}
-      {user?.role === "seller" && (
+      {user?.role === "admin" && (
         <MenuItem
           onClick={handleMenuClose}
           to="/dashboard"

@@ -7,7 +7,6 @@ import {
   Chip,
   Divider,
   Grid,
-  Rating,
   Stack,
   Typography,
 } from "@mui/material";
@@ -18,7 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { Link as RouterLink, useParams } from "react-router-dom";
 import LoadingScreen from "../components/loadingScreen/LoadingScreen";
-import { fCurrency, fNumber } from "../utils/numberFormat";
+import { fCurrency } from "../utils/numberFormat";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import apiService from "../app/apiService";
 import { addCart } from "../features/cart/cartSlice";
@@ -30,12 +29,14 @@ import { toast } from "react-toastify";
 
 
 function DetailProduct() {
+  // eslint-disable-next-line 
   const [open, setOpen] = useState(false);
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [img, setImg] = useState(0);
   const [border, setBorder] = useState(0);
+  // eslint-disable-next-line 
   const [page, setPage] = useState(1)
   const dispatch = useDispatch();
   const params = useParams();
@@ -75,10 +76,6 @@ function DetailProduct() {
     dispatch(getProducts(page))
   },[page, dispatch])
 
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
   const handleClickImage = (image, index) => {
     setImg(image);
