@@ -61,7 +61,7 @@ function EditOrderPage() {
         </TitleStyle>
       </Stack>
 
-      {user?.role === "seller" ? (
+      {user?.role === "admin" ? (
 
       <>
       <OrderUpdateStatus orders={orders} setOpen={setOpen} open={open} />

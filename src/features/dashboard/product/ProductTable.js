@@ -288,7 +288,7 @@ export default function ProductTable() {
 
   return (
     <>
-    {user?.role === "seller" ? (
+    {user?.role === "admin" ? (
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb:1 }}>
         <EnhancedTableToolbar

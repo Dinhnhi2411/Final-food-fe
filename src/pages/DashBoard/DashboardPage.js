@@ -32,7 +32,7 @@ export default function DashboardPage() {
 
   return (
     <>
-      {user?.role === "seller" ? (
+      {user?.role === "admin" ? (
         <Container 
         maxWidth={false} 
         sx={{
