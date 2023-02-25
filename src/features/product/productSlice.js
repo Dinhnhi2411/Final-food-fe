@@ -33,7 +33,9 @@ const initialState = {
   productsDiscount: [],
 
    filters: {
-    sortBy: ""
+    sortBy: "",
+    
+
   },
 };
 
