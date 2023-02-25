@@ -83,11 +83,12 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ## View app display
 
-![1](https://user-images.githubusercontent.com/109861294/218659391-29a62544-6910-46c0-b729-acb5a8e35495.png)
+![1](https://user-images.githubusercontent.com/109861294/221345548-6449cac6-4eb9-476e-98af-c9f8b317c662.png)
+
 
 ## View Dark Mode and Light Mode
 
-![8(1)](https://user-images.githubusercontent.com/109861294/218271327-d7c10d5e-3bb3-4b73-b8c0-23b92081f54d.png)
+![2](https://user-images.githubusercontent.com/109861294/221345560-50cd88da-953a-445b-8407-6cadd62a3511.png)
 
 ## Vew login display
 
@@ -99,6 +100,6 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ## View cart and order display
 
-![5](https://user-images.githubusercontent.com/109861294/217182153-2da31619-69e6-43b9-8235-d8146890ca2a.png)
+![3](https://user-images.githubusercontent.com/109861294/221345574-dd21b7b5-ea66-4c70-a218-a7e3116415ec.png)
 
-![4](https://user-images.githubusercontent.com/109861294/217182291-763b9d85-a012-467d-91c0-ac4322bc6220.png)
+![4(1)](https://user-images.githubusercontent.com/109861294/221345588-6eed859e-37aa-43d3-a40b-133614991b71.png)
