@@ -1,4 +1,4 @@
-import {  Button, Drawer, Grid, Typography } from "@mui/material";
+import { Button, Drawer, Grid, Typography } from "@mui/material";
 import { Box, Container, Stack } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import ProductList from "../features/product/ProductList";
@@ -16,6 +16,7 @@ import SearchInput from "../components/searchInput/SearchInput";
 import useResponsive from "../hooks/useResponsive";
 import ProductFilterTypes from "../features/product/ProductFilterTypes";
 import ProductFilterStatus from "../features/product/ProductFilterStatus";
+import ProductFilterPrice from "../features/product/ProductFilterPrice";
 
 function StorePage() {
   const upLg = useResponsive("up", "lg");
@@ -26,9 +27,8 @@ function StorePage() {
     filters,
     currentPage,
     totalProductList,
- 
+
     products,
-    
   } = useSelector((state) => state?.product);
 
   const handleDispatch = (value) => {
@@ -57,7 +57,6 @@ function StorePage() {
   };
 
   return (
-
     <Container>
       <Stack
         direction="row"
@@ -76,7 +75,6 @@ function StorePage() {
         >
           Filter
         </Button>
-      
 
         <Drawer
           anchor="left"
@@ -92,64 +90,74 @@ function StorePage() {
             handleDispatch={handleDispatch}
           />
 
-            <ProductFilterStatus
+          <ProductFilterStatus
             onCloseFilter={handleCloseFilter}
             isOpenFilter={openFilter}
             handleDispatch={handleDispatch}
           />
 
+          <ProductFilterPrice
+            handleDispatch={handleDispatch}
+            isOpenFilter={openFilter}
+            disableScrollBar={true}
+          />
         </Drawer>
       </Stack>
 
       <Grid container spacing={3}>
         {upLg && (
           <Grid item xs={3}>
-            <Box 
-            sx={{
-              display:"flex",
-              flexDirection:"column",
-              
-              textAlign:"center",
-              alignItems:"center",
-              backgroundColor:"grey.200",
-              borderRadius:5,
-              pb:4,
-              mt:2
-            }}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+
+                textAlign: "center",
+                alignItems: "center",
+                // backgroundColor: "grey.200",
+                borderRadius: 5,
+                pb: 4,
+                mt: 2,
+              }}
             >
-            <ProductFilterTypes
-              handleDispatch={handleDispatch}
-              disableScrollBar={true}
-            />
-            
-            <ProductFilterStatus
-              handleDispatch={handleDispatch}
-              disableScrollBar={true}
-            />
+              <ProductFilterTypes
+                handleDispatch={handleDispatch}
+                disableScrollBar={true}
+              />
+
+              <ProductFilterStatus
+                handleDispatch={handleDispatch}
+                disableScrollBar={true}
+              />
+
+              <ProductFilterPrice
+                handleDispatch={handleDispatch}
+                disableScrollBar={true}
+              />
             </Box>
           </Grid>
         )}
         <Grid item xs={12} md={12} lg={9}>
-            <ProductList products={products} />
+          <ProductList products={products} />
 
-            <Box
-        sx={{
-          mt: { xs: 2, md: 5 },
-          mb: { xs: 2, md: 5 },
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-              {totalProductList ? (
-                <PaginationBar
-                  page={currentPage}
-                  setPage={handleChangePage}
-                  totalPage={+totalPages}
-                />
-              ) : (
-                <Typography variant="h6">No Products Yet</Typography>
-              )}
-            </Box>
+          <Box
+            sx={{
+              mt: { xs: 2, md: 5 },
+              mb: { xs: 2, md: 5 },
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            {totalProductList ? (
+              <PaginationBar
+                page={currentPage}
+                setPage={handleChangePage}
+                totalPage={+totalPages}
+              />
+            ) : (
+              <Typography variant="h6">No Products Yet</Typography>
+            )}
+          </Box>
         </Grid>
       </Grid>
     </Container>
