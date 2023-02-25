@@ -57,13 +57,11 @@ function LoginPage() {
         // if login user is customer 
      
         if(user?.role === "customer") {
-            console.log(user?.role)
            navigate(fromHome, { replace: true });
      
         // if login user is admin
 
         } else {
-           console.log(user?.role)
           navigate(fromDash, { replace: true });
         }
     
