@@ -103,3 +103,11 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 ![3](https://user-images.githubusercontent.com/109861294/221345574-dd21b7b5-ea66-4c70-a218-a7e3116415ec.png)
 
 ![4(1)](https://user-images.githubusercontent.com/109861294/221345588-6eed859e-37aa-43d3-a40b-133614991b71.png)
+
+## View dashboard page display
+
+![5](https://user-images.githubusercontent.com/109861294/221345657-a7b0bea7-67b4-4981-bb23-9abe4af7f374.png)
+
+![6](https://user-images.githubusercontent.com/109861294/221345663-f6f2dcb7-1fee-40cf-aae0-c897a6a36805.png)
+
+![7](https://user-images.githubusercontent.com/109861294/221345672-cecf6a43-3cf9-46f9-8a9f-d683581a0806.png)
