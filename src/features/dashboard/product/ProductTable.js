@@ -337,7 +337,7 @@ export default function ProductTable() {
                           component="img"
                           sx={{
                             width: {xs:50, md:80, lg:100},
-                            height: "100%",
+                            height: {xs:40, md:70, lg:"100%"},
                             ml: 1,
                             mt: 1,
                             borderRadius: 1,

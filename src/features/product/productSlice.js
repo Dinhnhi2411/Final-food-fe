@@ -151,6 +151,7 @@ const response = await apiService.post("/products", {
     productName, types, status, price, priceSale, unit, rating, description, image: imageUrl,
 });
 dispatch(slice.actions.createProductSuccess(response.data));
+dispatch(getProducts(response));
 toast.success("Create Product Successfully");
 
 }catch(error) {

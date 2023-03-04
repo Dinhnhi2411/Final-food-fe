@@ -16,7 +16,7 @@ export const SORT_BY_OPTIONS = [
 const defaultValues = {
   sortBy: "",
 };
-export default function ProductSort({ handleDispatch }) {
+export default function ProductFilter({ handleDispatch }) {
   const { filters } = useSelector((state) => state?.product);
   const methods = useForm({ defaultValues, mode: "onChange" });
   const { handleSubmit, reset, watch } = methods;

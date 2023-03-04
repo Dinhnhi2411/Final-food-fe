@@ -12,7 +12,8 @@ function FSelect({ name, children, ...other }) {
                 <TextField
                     {...field}
                     select
-                    fullWidth
+                    // fullWidth
+                    sx={{width:{xs:100, sm:150, md:200, lg:300}}}
                     color="secondary" focused 
                     SelectProps={{ native: true }}
                     error={!!error}
