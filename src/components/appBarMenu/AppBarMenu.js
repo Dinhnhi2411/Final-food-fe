@@ -78,7 +78,7 @@ function AppBarMenu() {
 
   const handleCart = () => {
     if (carts.length !== 0 && carts.totalItem !== 0) {
-      navigate("/cart");
+      navigate("/checkout");
     } else {
       toast("Cart empty ");
     }
@@ -335,7 +335,7 @@ function AppBarMenu() {
             {user ? (
               <IconButton
                 onClick={handleCart}
-                to="/cart"
+                to="/checkout"
                 aria-label="Show cart"
                 color="inherit"
                 sx={{mr:2}}
