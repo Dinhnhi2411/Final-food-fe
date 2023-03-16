@@ -1,7 +1,6 @@
 import { alpha, createTheme, CssBaseline } from "@mui/material";
 import {  ThemeProvider } from "@mui/material/styles";
 
-import customizeComponents from "./customizations";
 
 const PRIMARY = {
   lighter: "#FFE6EA",
