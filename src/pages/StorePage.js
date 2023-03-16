@@ -64,7 +64,7 @@ function StorePage() {
         alignItems="center"
         justifyContent="flex-end"
         spacing={2}
-        sx={{ mb: 5 }}
+        sx={{ mb: 5}}
       >
         <SearchInput handleSubmit={handleSubmit} />
         <Button
@@ -72,6 +72,9 @@ function StorePage() {
           color="inherit"
           startIcon={<FilterListIcon />}
           onClick={handleOpenFilter}
+          sx={{
+            display:{lg:"none"} 
+          }}
         >
           Filter
         </Button>
