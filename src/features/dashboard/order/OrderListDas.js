@@ -91,7 +91,7 @@ function OrderListDas({ ordersDashboard, handleClickOpen }) {
                     }}
                   >
                     <span>Price:</span>
-                    <span>{fCurrency(product?.product?.price)} </span>
+                    <span>{fCurrency(product?.price)} </span>
                   </Typography>
 
                   <Typography
