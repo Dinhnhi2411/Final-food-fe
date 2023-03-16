@@ -9,6 +9,7 @@ const initialState = {
   productId: {},
   carts: [],
   page: 1,
+  activeStep: 0,
 };
 
 const slice = createSlice({
@@ -21,6 +22,9 @@ const slice = createSlice({
     hasError(state, action) {
       state.isLoading = false;
       state.error = action.payload;
+    },
+    setActiveStep(state, action) {
+      state.activeStep = action.payload;
     },
     getCartSuccess(state, action) {
       state.isLoading = false;
@@ -37,7 +41,7 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-
+export const {setActiveStep} = slice.actions;
 //  GET CART
 
 export const getCart =
