@@ -75,7 +75,7 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ## Relationship Diagram
 
-![relationship diagram drawio (1) drawio (1)](https://user-images.githubusercontent.com/109861294/221338803-a19dd0c9-3112-446d-8e41-583fde904fb7.png)
+![relationship diagram](https://user-images.githubusercontent.com/109861294/225566201-3ed379bd-83db-4412-bc26-d956856ccfd5.png)
 
 ## Link Demo
 
@@ -85,7 +85,6 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ![1](https://user-images.githubusercontent.com/109861294/221345548-6449cac6-4eb9-476e-98af-c9f8b317c662.png)
 
-
 ## View Dark Mode and Light Mode
 
 ![2](https://user-images.githubusercontent.com/109861294/221345560-50cd88da-953a-445b-8407-6cadd62a3511.png)
@@ -94,15 +93,21 @@ Run **npm run start:dev** or **yarn start:dev** to start app
 
 ![1](https://user-images.githubusercontent.com/109861294/217179264-e4b7e64d-f64a-4dcc-a46a-5ffc868582c2.png)
 
+## View Chatbox display
+
+![4](https://user-images.githubusercontent.com/109861294/225565408-0b8d4c66-5916-4583-b7d9-125b6b1fdbbb.png)
+
 ## View products and information product display
 
 ![6](https://user-images.githubusercontent.com/109861294/217181718-b6a1027e-ce60-46e7-8ec2-11fc25a36791.png)
 
 ## View cart and order display
 
-![3](https://user-images.githubusercontent.com/109861294/221345574-dd21b7b5-ea66-4c70-a218-a7e3116415ec.png)
+![1](https://user-images.githubusercontent.com/109861294/225564997-3fc9db6c-69e4-4746-9925-d7534bad903c.png)
 
-![4(1)](https://user-images.githubusercontent.com/109861294/221345588-6eed859e-37aa-43d3-a40b-133614991b71.png)
+![3](https://user-images.githubusercontent.com/109861294/225565173-255acbca-fe2d-4553-a31d-b959b2e7a7e7.png)
+
+![2](https://user-images.githubusercontent.com/109861294/225565165-58490ee4-580d-4eac-994b-a8dd6ef17cf7.png)
 
 ## View dashboard page display
 
