@@ -1,27 +1,28 @@
 // material
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import {  Stack, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { FormProvider, FRadioGroup } from "../../components/form";
-import Iconify from "../../components/Iconify/Iconify";
-import { handleClearFilters } from "./productSlice";
 
 export const FILTER_PRICE_OPTIONS = [
-  { value: "below", label: "Below $6" },
-  { value: "between", label: "Between $6 - $10" },
-  { value: "above", label: "Above $10" },
+  { value: "All", label: "All Price" },
+
+  { value: "Below", label: "Below $6" },
+
+  { value: "Between", label: "Between $6 - $10" },
+
+  { value: "Above", label: "Above $10" },
 ];
 
 const defaultValues = {
-  price: "",
+  sortBy: "All",
 };
 
 export default function ProductFilterPrice({ handleDispatch }) {
   const { filters } = useSelector((state) => state?.product);
   const methods = useForm({ defaultValues, mode: "onChange" });
   const { handleSubmit, reset, watch } = methods;
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!filters.sortBy) {
@@ -58,23 +59,7 @@ export default function ProductFilterPrice({ handleDispatch }) {
         </Stack>
       </Stack>
 
-      <Divider sx={{ borderStyle: "dashed", mb: 1 }} />
-      <Box sx={{ p:2, textAlign:"center"}}>
-        <Button
-          size="large"
-          type="submit"
-          color="primary"
-          variant="outlined"
-          startIcon={<Iconify icon="ic:round-clear-all" />}
-          onClick={() => {
-            reset();
-            dispatch(handleClearFilters());
-          }}
-        >
-          Clear All
-        </Button>
-      </Box>
-
+     
     </FormProvider>
   );
 }
