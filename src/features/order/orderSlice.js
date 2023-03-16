@@ -94,7 +94,7 @@ export const createOrder =
 // GET ORDER 
 
 export const getOrder =
-  ({ page, limit = 5 }) =>
+  ({ page, limit = 8 }) =>
   async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
