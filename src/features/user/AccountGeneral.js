@@ -26,6 +26,7 @@ function AccountGeneral() {
     name: user?.name || "",
     email: user?.email || "",
     avatarUrl: user?.avatarUrl || "",
+    phone:user?.phone || "",
     phoneNumber: user?.phone || "",
     address: user?.address || "",
     city: user?.city || "",
@@ -106,7 +107,7 @@ function AccountGeneral() {
               <FTextField name="name" label="Name" />
               <FTextField name="email" label="Email" disabled />
 
-              <FTextField name="phoneNumber" label="Phone Number" />
+              <FTextField name="phone" label="Phone Number" />
               <FTextField name="address" label="Address" />
 
               <FTextField name="city" label="City" />
