@@ -274,10 +274,10 @@ function DetailProduct() {
                             startIcon={<AddShoppingCartIcon />}
                             onClick={() => {
                               if (!user) {
-                                navigate("/login");
+                                toast.error("Please login for add to cart");
                               } else {
                                (user?._id === product?.author._id)
-                                ? toast("You can't buy your product store")
+                                ? toast.error("You can't buy your product store")
                                 : handleAddToCart()
                               }
                             }}
