@@ -1,6 +1,6 @@
 import { Box, Stack,} from "@mui/material";
 import { styled } from "@mui/system";
-import {  useState } from "react";
+import {  useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import AlertMsg from "../components/alertMsg/AlertMsg";
 import DashboardSidebar from "../components/dashboard/DashboardSidebar";
@@ -34,6 +34,20 @@ const MainStyle = styled("span")(({ theme }) => ({
 
 export default function DashboardLayout() {
   const [open, setOpen] = useState(false);
+
+
+ 
+
+ window.onload = () => {
+
+};
+useEffect(()=>{
+function chatbox() {
+  let scripts= document.getElementsByTagName("chat-widget");
+  scripts[0].style.display="none"
+}
+chatbox()
+},[])
 
   return (
     <RootStyle direction="row">
