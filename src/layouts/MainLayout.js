@@ -1,22 +1,24 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState} from "react";
 import MainFooter from "./MainFooter";
 import MainHeader from "./MainHeader";
 import { Box, Stack, Switch } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import AlertMsg from "../components/alertMsg/AlertMsg";
 
+
 export const ThemeContext = createContext(null);
 
 function MainLayout() {
   // SETUP DARK MODE AND LIGHT MODE
-
   const [theme, setTheme] = useState("light");
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
   };
 
   return (
+    <>
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
+   
       <Stack
         id={theme}
         sx={{ width: "100wh", minHeight: "100vh", backgroundColor: "#F4F6F8" }}
@@ -37,6 +39,7 @@ function MainLayout() {
         <MainFooter />
       </Stack>
     </ThemeContext.Provider>
+    </>
   );
 }
 
