@@ -91,8 +91,6 @@ function AddProduct() {
 
     dispatch(getProducts({ id: user._id, page }));
     dispatch(getProducts({ page }));
-    navigate("/dashboard/products")
-
   };
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
