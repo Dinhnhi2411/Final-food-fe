@@ -19,6 +19,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { fDate } from "../../utils/formatTime";
 
 function OrderList({ orders }) {
+  
   return (
     <Container>
       <Box>
@@ -48,6 +49,7 @@ function OrderList({ orders }) {
       <Container>
         <Grid container spacing={2} mt={1} mb={2}>
           {orders?.map((item) => {
+          
             item?.products?.map((product) => {
               return product;
             });
@@ -80,7 +82,7 @@ function OrderList({ orders }) {
                           Product: {product?.product?.productName}
                         </Typography>
                         <Typography sx={{color: "#000"}} >
-                          Price: {fCurrency(product?.product?.price)}
+                          Price: {fCurrency(product?.price)}
                         </Typography>
                         <Typography sx={{color: "#000"}} >Amount: {product?.amount}</Typography>
                         <Typography sx={{color: "#000"}} >Total: {fCurrency(product?.sum)}</Typography>
@@ -88,7 +90,7 @@ function OrderList({ orders }) {
                       </Box>
                     ))}
 
-                    <Typography>
+                    <Typography sx={{color: "#000"}}>
                       Price Ship: {fCurrency(item.priceShip)}
                     </Typography>
                     <Typography
