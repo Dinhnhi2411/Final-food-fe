@@ -55,7 +55,7 @@ function Router() {
           />
 
           <Route
-            path="cart"
+            path="checkout"
             element={
               <AuthRequire>
                 <CartPage />
