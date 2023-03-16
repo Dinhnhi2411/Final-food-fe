@@ -23,7 +23,7 @@ export default function LastProduct(props) {
   const [limit, setLimit] = useState(5);
 
   useEffect(() => {
-    const filter = { sortBy: "createdAt.desc", limit: limit };
+    const filter = { sortBy: "updatedAt.desc", limit: limit };
     dispatch(getProductList(filter));
     // eslint-disable-next-line
   }, [dispatch]);
