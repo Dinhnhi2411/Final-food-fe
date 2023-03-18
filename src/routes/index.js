@@ -48,9 +48,9 @@ function Router() {
           <Route
             path="order"
             element={
-              <AuthRequire>
+              // <AuthRequire>
                 <OrderPage />
-              </AuthRequire>
+              // </AuthRequire>
             }
           />
 
