@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import { useSelector } from "react-redux";
-import { FMultiCheckbox, FormProvider } from "../../components/form";import { handleClearFilters } from "./productSlice";
+import { FMultiCheckbox, FormProvider } from "../../components/form";
 
 export const FILTER_STATUS_OPTIONS = ["New", "Top", "Discount"];
 
