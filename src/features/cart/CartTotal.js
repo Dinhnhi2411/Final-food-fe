@@ -1,14 +1,12 @@
-import { Box, Divider, Paper, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 import { Container, Stack } from "@mui/system";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import SkeletonLoading from "../../components/skeleton/SkeletonLoading";
 import { fCurrency } from "../../utils/numberFormat";
 
 function CartTotal({ cartCount }) {
-  const { isLoading } = useSelector(
-    (state) => state.cart
-  );
+  const { isLoading } = useSelector((state) => state.cart);
 
   const calSubTotal = cartCount?.reduce(
     (acc, curr, index, arr) => {
@@ -23,7 +21,6 @@ function CartTotal({ cartCount }) {
     { subTotal: 0, shipping: 0, total: 0 }
   );
 
- 
   return (
     <Container className="cart-container">
       {isLoading ? (
@@ -35,8 +32,9 @@ function CartTotal({ cartCount }) {
         />
       ) : (
         <>
-         
-          <Typography fontSize={23} textAlign="center">📋 {""} Payment Detail</Typography>
+          <Typography fontSize={23} textAlign="center">
+            📋 {""} Payment Detail
+          </Typography>
           <Divider sx={{ m: 1 }} />
           <Stack direction="row" justifyContent="space-Between" spacing={2}>
             <Typography variant="subtitle1" textAlign="center">
@@ -62,9 +60,9 @@ function CartTotal({ cartCount }) {
         <SkeletonLoading isLoading={isLoading} height="30px" width="100%" />
       ) : (
         <Stack direction="row" justifyContent="space-Between" spacing={2}>
-           <Typography variant="h6" textAlign="center">
-              Total Payment:
-            </Typography>
+          <Typography variant="h6" textAlign="center">
+            Total Payment:
+          </Typography>
           <Typography variant="h6" textAlign="center">
             {!isLoading && fCurrency(calSubTotal?.total)}
           </Typography>
