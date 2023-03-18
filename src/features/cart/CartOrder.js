@@ -61,12 +61,11 @@ function CartOrder({ carts }) {
           product: item.productId?._id,
           amount: item.amount,
           price:item.productId?.priceSale,
-          sum: item.productId?.priceSale * item.amount,
+          sum: item.productId?.priceSale * item.amount ,
           cartId: item._id,
         },
       ];
       sum = item.productId?.priceSale * item.amount;
-
       totalPrice += sum;
 
       return totalPrice;
@@ -81,7 +80,7 @@ function CartOrder({ carts }) {
         phone: data.phone,
         products: products,
         priceShip: priceShip,
-        total: totalPrice,
+        total: totalPrice + priceShip,
         userId: user._id,
       })
     );
