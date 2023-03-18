@@ -26,10 +26,9 @@ function Poster() {
             color: "#D0D0D0",
           }}
         >
-          Chuyên cung cấp các thực phẩm organic cho người dùng, phục vụ người
-          dùng một cách hoàn hảo nhất
+          Specializing in providing organic food to users, serving users in the most perfect way.
         </Typography>
-        <button onClick={() => navigate("/store")}>Mua ngay</button>
+        <button onClick={() => navigate("/store")}>Buy Now</button>
       </div>
 
       <div className="box-right">
