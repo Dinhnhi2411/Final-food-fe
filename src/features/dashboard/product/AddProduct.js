@@ -10,7 +10,6 @@ import useAuth from "../../../hooks/useAuth";
 import { createProduct, getProducts } from "../../product/productSlice";
 import { fData } from "../../../utils/numberFormat";
 import { FormProvider, FSelect, FTextField, FUploadImage } from "../../../components/form";
-import { useNavigate } from "react-router-dom";
 
 const CreateProductSchema = yup.object().shape({
   productName: yup.string().required("productName is required *"),
@@ -34,7 +33,6 @@ const defaultValues = {
 function AddProduct() {
   const { isLoading } = useSelector((state) => state.product);
   const { user } = useAuth();
-  const navigate = useNavigate()
   const methods = useForm({
     resolver: yupResolver(CreateProductSchema),
     defaultValues,
